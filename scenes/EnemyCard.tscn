@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dv1s21ql8yf7a"]
+
+[ext_resource type="Texture2D" uid="uid://b8p2pf3omfybk" path="res://assets/enemy.jpg" id="1_x35a2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuttk"]
+size = Vector2(82, 128)
+
+[node name="EnemyCard" type="Node2D" unique_id=1686933852]
+
+[node name="EnemyCardImage" type="Sprite2D" parent="." unique_id=546477463]
+position = Vector2(-9.536743e-07, 9.536743e-07)
+scale = Vector2(0.10473413, 0.109306246)
+texture = ExtResource("1_x35a2")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1683393420]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1546799888]
+shape = SubResource("RectangleShape2D_yuttk")

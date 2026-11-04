@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://vr7p0c7oothq"]
+
+[ext_resource type="Script" uid="uid://c81j5nokfqgwf" path="res://scripts/CardManager.gd" id="1_r0du0"]
+[ext_resource type="PackedScene" uid="uid://dv1s21ql8yf7a" path="res://scenes/EnemyCard.tscn" id="3_r0du0"]
+[ext_resource type="Script" uid="uid://hlmtnj38416p" path="res://scripts/EnemyCard.gd" id="4_cm0pq"]
+[ext_resource type="Script" uid="uid://88v4hu16awvl" path="res://scripts/PlayerHand.gd" id="4_fos0i"]
+[ext_resource type="Script" uid="uid://dc6itfumf4nt1" path="res://scripts/Deck.gd" id="5_3dxm6"]
+[ext_resource type="Texture2D" uid="uid://580dlai2pyaf" path="res://assets/deckVerso.jpg" id="5_fos0i"]
+[ext_resource type="Script" uid="uid://bi48mx8qerqpu" path="res://InputManager.gd" id="7_lgr22"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuttk"]
+size = Vector2(118, 175)
+
+[node name="Main" type="Node2D" unique_id=147744678]
+
+[node name="CardManager" type="Node2D" parent="." unique_id=2104290816]
+script = ExtResource("1_r0du0")
+
+[node name="EnemyCard" parent="." unique_id=1686933852 instance=ExtResource("3_r0du0")]
+position = Vector2(848, 149)
+script = ExtResource("4_cm0pq")
+
+[node name="PlayerHand" type="Node2D" parent="." unique_id=200604041]
+script = ExtResource("4_fos0i")
+
+[node name="InputManager" type="Sprite2D" parent="." unique_id=1831201650]
+script = ExtResource("7_lgr22")
+
+[node name="Deck" type="Node2D" parent="." unique_id=1877763449]
+position = Vector2(150, 890)
+script = ExtResource("5_3dxm6")
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck" unique_id=1259684653]
+z_index = -2
+position = Vector2(7.6293945e-06, 1.7166138e-05)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("5_fos0i")
+
+[node name="Area2D" type="Area2D" parent="Deck" unique_id=8961247]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/Area2D" unique_id=2116195492]
+shape = SubResource("RectangleShape2D_yuttk")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Deck" unique_id=1750755272]
+z_index = -2
+offset_left = -57.999996
+offset_top = -66.0
+offset_right = -33.999996
+offset_bottom = -42.5
+scale = Vector2(5, 5)
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
