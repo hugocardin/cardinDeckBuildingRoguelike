@@ -2,8 +2,9 @@ const CARD_DEFAULT_MOVE_DURATION = 0.1
 const CARD_SCENE_PATH = "res://components/card/Card.tscn"
 const CARD_SCALE_DEFAULT = Vector2(0.3, 0.3)
 const CARD_SCALE_BIG = Vector2(0.33, 0.33)
-const CARD_NATIVE_HEIGHT = 1168
-const CARD_HEIGHT = CARD_NATIVE_HEIGHT * CARD_SCALE_DEFAULT.x
+const CARD_NATIVE_SIZE = Vector2(768, 1168)
+const CARD_HEIGHT = CARD_NATIVE_SIZE[1] * CARD_SCALE_DEFAULT.y
+const CARD_WIDTH = CARD_NATIVE_SIZE[0] * CARD_SCALE_DEFAULT.x
 
 const DECK_DRAW_DURATION = 0.5
 const DECK_DRAW_INITIAL_CARDS = ["knight", "knight", "knight", "demon", "demon", "archer", "archer", "archer", "archer"]

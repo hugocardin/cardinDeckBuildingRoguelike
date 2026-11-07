@@ -18,25 +18,25 @@ script = ExtResource("3_kos6x")
 script = ExtResource("1_kos6x")
 
 [node name="Player" parent="." unique_id=1279587413 instance=ExtResource("4_nygig")]
-position = Vector2(497, 438)
+position = Vector2(540, 721)
 
 [node name="PlayerHand" type="Node2D" parent="." unique_id=54393005]
 script = ExtResource("3_22lvc")
 
 [node name="Deck" parent="." unique_id=631521557 instance=ExtResource("6_hl5pk")]
-position = Vector2(150, 550)
-scale = Vector2(0.1, 0.1)
+position = Vector2(150, 700)
+scale = Vector2(0.3, 0.3)
 
 [node name="Discard" parent="." unique_id=1637224165 instance=ExtResource("7_jjack")]
-position = Vector2(930, 550)
-scale = Vector2(0.1, 0.1)
+position = Vector2(930, 700)
+scale = Vector2(0.3, 0.3)
 
 [node name="BattleTimer" type="Timer" parent="." unique_id=443405477]
 
 [node name="EndTurnButton" type="Button" parent="." unique_id=457592452]
-offset_left = 475.0
+offset_left = 480.0
 offset_top = 589.0
-offset_right = 593.0
+offset_right = 600.0
 offset_bottom = 620.0
 text = "End Turn"
 

@@ -10,8 +10,9 @@ var enemies_y
 func _ready() -> void:
 	center_screen_x = get_viewport().get_visible_rect().size.x / 2.0
 	enemies_y = Constants.ENEMIES_HAND_TOP_MARGIN + Constants.CARD_HEIGHT / 2.0
-	card_manager_reference = $"../CardManager"
 	enemy_cards = []
+	
+	card_manager_reference = $"../CardManager"
 	
 	EventBus.enemy_is_dead.connect(_on_enemy_is_dead)
 	
@@ -46,14 +47,14 @@ func update_hand_positions():
 		animate_card_to_position(enemy_card, target, Constants.CARD_DEFAULT_MOVE_DURATION)
 
 func calculate_card_position(index: int) -> float:
-	var spacing = 30.0
 	var count = enemy_cards.size()
-	var card_width = get_card_width()
+	var screen_width = center_screen_x * 2.0
 	
-	var total_width = count * card_width + (count - 1) * spacing
-	var start_x = center_screen_x - total_width / 2.0
+	var total_cards_width = count * Constants.CARD_WIDTH
+	var total_spacing = screen_width - total_cards_width
+	var gap = total_spacing / (count + 1)
 	
-	return start_x + index * (card_width + spacing) + card_width / 2.0
+	return gap + index * (Constants.CARD_WIDTH + gap) + Constants.CARD_WIDTH / 2.0
 	
 func get_card_width() -> float:
 	if enemy_cards.is_empty():

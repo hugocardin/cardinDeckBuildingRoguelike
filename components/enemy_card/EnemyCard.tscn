@@ -18,22 +18,24 @@ texture = ExtResource("2_ke84f")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1546799888]
 shape = SubResource("RectangleShape2D_yuttk")
 
-[node name="Health" type="RichTextLabel" parent="." unique_id=1729390869]
-self_modulate = Color(0, 1, 0, 1)
-offset_left = -392.0
+[node name="Attack" type="RichTextLabel" parent="." unique_id=1961168600]
+self_modulate = Color(1, 0, 0, 1)
+z_index = 1
+offset_left = 217.0
 offset_top = -584.0
-offset_right = -367.0
+offset_right = 242.0
 offset_bottom = -559.0
 scale = Vector2(7, 7)
 text = "99"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Attack" type="RichTextLabel" parent="." unique_id=1961168600]
-self_modulate = Color(1, 0, 0, 1)
-offset_left = 217.0
+[node name="Health" type="RichTextLabel" parent="." unique_id=1729390869]
+self_modulate = Color(0, 1, 0, 1)
+z_index = 1
+offset_left = -392.0
 offset_top = -584.0
-offset_right = 242.0
+offset_right = -367.0
 offset_bottom = -559.0
 scale = Vector2(7, 7)
 text = "99"

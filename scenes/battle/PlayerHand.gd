@@ -7,8 +7,7 @@ var hand_y: float
 
 func _ready() -> void:
 	var h = get_viewport().get_visible_rect().size.y
-	var card_height = Constants.CARD_NATIVE_HEIGHT * Constants.CARD_SCALE_DEFAULT.x
-	hand_y = h - Constants.PLAYER_HAND_BOTTOM_MARGIN - card_height / 2.0
+	hand_y = h - Constants.PLAYER_HAND_BOTTOM_MARGIN - Constants.CARD_HEIGHT / 2.0
 
 func add_card_to_hand(card: Card, duration: float = Constants.CARD_DEFAULT_MOVE_DURATION):
 	if card not in cards:
