@@ -1,15 +1,19 @@
 [gd_scene format=3 uid="uid://boyexs1wjnt4b"]
 
+[ext_resource type="Script" uid="uid://jc540a5xmbfe" path="res://scenes/battle/Battle.gd" id="1_2ckr4"]
 [ext_resource type="Script" uid="uid://c81j5nokfqgwf" path="res://scenes/battle/CardManager.gd" id="1_kos6x"]
 [ext_resource type="Script" uid="uid://88v4hu16awvl" path="res://scenes/battle/PlayerHand.gd" id="3_22lvc"]
 [ext_resource type="Script" uid="uid://dtpvhi4ft48ry" path="res://scenes/battle/Enemies.gd" id="3_kos6x"]
 [ext_resource type="PackedScene" uid="uid://cd0mrm0winfv6" path="res://components/player/Player.tscn" id="4_nygig"]
 [ext_resource type="PackedScene" uid="uid://ctat3s5tf7hbr" path="res://components/deck/Deck.tscn" id="6_hl5pk"]
 [ext_resource type="PackedScene" uid="uid://bs0wkulxtx64a" path="res://components/discard/Discard.tscn" id="7_jjack"]
-[ext_resource type="Script" uid="uid://jc540a5xmbfe" path="res://scenes/battle/BattleManager.gd" id="8_kos6x"]
 [ext_resource type="Script" uid="uid://bi48mx8qerqpu" path="res://scripts/InputManager.gd" id="8_nygig"]
 
 [node name="Battle" type="Node2D" unique_id=1225489236]
+script = ExtResource("1_2ckr4")
+
+[node name="InputManager" type="Node2D" parent="." unique_id=1320061917]
+script = ExtResource("8_nygig")
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1015724773]
 script = ExtResource("3_kos6x")
@@ -31,8 +35,6 @@ scale = Vector2(0.3, 0.3)
 position = Vector2(930, 700)
 scale = Vector2(0.3, 0.3)
 
-[node name="BattleTimer" type="Timer" parent="." unique_id=443405477]
-
 [node name="EndTurnButton" type="Button" parent="." unique_id=457592452]
 offset_left = 480.0
 offset_top = 589.0
@@ -40,10 +42,6 @@ offset_right = 600.0
 offset_bottom = 620.0
 text = "End Turn"
 
-[node name="BattleManager" type="Node" parent="." unique_id=1882489473]
-script = ExtResource("8_kos6x")
+[node name="BattleTimer" type="Timer" parent="." unique_id=443405477]
 
-[node name="InputManager" type="Node2D" parent="." unique_id=1320061917]
-script = ExtResource("8_nygig")
-
-[connection signal="pressed" from="EndTurnButton" to="BattleManager" method="_on_end_turn_button_pressed"]
+[connection signal="pressed" from="EndTurnButton" to="." method="_on_end_turn_button_pressed"]

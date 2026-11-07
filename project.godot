@@ -18,9 +18,11 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 CardDatabase="*uid://c170377nr83li"
+CharacterDatabase="*uid://cesnotktvpebs"
 Collision="*uid://b07kjm5fuf4be"
 Constants="*uid://bosw7me20g2gm"
 EventBus="*uid://cov8rd8t2i535"
+GameState="*uid://b24t1vlf4bpw0"
 SceneManager="*uid://bf2wfxi8xmabi"
 
 [display]

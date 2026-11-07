@@ -5,11 +5,9 @@ extends Node2D
 var enemy_cards
 var center_screen_x
 var card_manager_reference
-var enemies_y
 
 func _ready() -> void:
 	center_screen_x = get_viewport().get_visible_rect().size.x / 2.0
-	enemies_y = Constants.ENEMIES_HAND_TOP_MARGIN + Constants.CARD_HEIGHT / 2.0
 	enemy_cards = []
 	
 	card_manager_reference = $"../CardManager"
@@ -43,7 +41,7 @@ func update_hand_positions():
 	for i in range(enemy_cards.size()):
 		var enemy_card = enemy_cards[i]
 		var x = calculate_card_position(i)
-		var target = Vector2(x, enemies_y)
+		var target = Vector2(x, Constants.ENEMIES_Y)
 		animate_card_to_position(enemy_card, target, Constants.CARD_DEFAULT_MOVE_DURATION)
 
 func calculate_card_position(index: int) -> float:

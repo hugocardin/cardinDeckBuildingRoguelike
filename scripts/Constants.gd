@@ -7,15 +7,17 @@ const CARD_HEIGHT = CARD_NATIVE_SIZE[1] * CARD_SCALE_DEFAULT.y
 const CARD_WIDTH = CARD_NATIVE_SIZE[0] * CARD_SCALE_DEFAULT.x
 
 const DECK_DRAW_DURATION = 0.5
-const DECK_DRAW_INITIAL_CARDS = ["knight", "knight", "knight", "demon", "demon", "archer", "archer", "archer", "archer"]
 const DECK_POSITION = Vector2(150, 550)
 
 const DISCARD_POSITION = Vector2(150, 550)
 
 const ENEMIES_HAND_TOP_MARGIN = 20
 const ENEMIES_INITIAL_CARDS : Array = ["wraithvine", "orc", "wraithvine"]
+const ENEMIES_Y = ENEMIES_HAND_TOP_MARGIN + CARD_HEIGHT / 2.0
 
 const ENEMY_CARD_SCENE_PATH = "res://components/enemy_card/EnemyCard.tscn"
 
 const PLAYER_CARD_COUNT = 4
 const PLAYER_HAND_BOTTOM_MARGIN = 20
+
+enum LevelType { NORMAL_BATTLE, ELITE_BATTLE, WORLD_BOSS_BATTLE }

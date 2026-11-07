@@ -9,24 +9,35 @@ var end_button_reference
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	battle_timer = $"../BattleTimer"
+	battle_timer = $BattleTimer
 	battle_timer.wait_time = 1
 	battle_timer.one_shot = true
 	
-	enemies_reference = $"../Enemies"
-	player_reference = $"../Player"
-	deck_reference = $"../Deck"
-	end_button_reference = $"../EndTurnButton"
+	enemies_reference = $Enemies
+	player_reference = $Player
+	deck_reference = $Deck
+	end_button_reference = $EndTurnButton
 	
 	initialise_cards()
 	
 func initialise_cards():
-	var deck_cards = Constants.DECK_DRAW_INITIAL_CARDS.duplicate()
+	player_reference.setup()
+	
+	var deck_cards = GameState.all_player_cards.duplicate()
 	deck_cards.shuffle()
 	deck_reference.setup(deck_cards)
 	
-	var enemy_cards = Constants.ENEMIES_INITIAL_CARDS.duplicate()
-	enemy_cards.shuffle()
+	# TEMP TO HAVE RANDOM ENEMIES
+	var pool = ["orc", "wraithvine"]
+	var count = randi_range(1, 3)
+	var enemies: Array[String] = []
+	for i in count:
+		enemies.append(pool[randi() % pool.size()])
+	# END OF TEMP PART
+	
+	GameState.set_enemies(enemies)
+	
+	var enemy_cards = GameState.current_enemies
 	enemies_reference.setup(enemy_cards)
 	
 	EventBus.player_turn_started.emit()
@@ -50,6 +61,6 @@ func opponent_turn() -> void:
 		battle_timer.start()
 		await battle_timer.timeout
 		
-		if player_reference.is_dead():
+		if GameState.is_player_dead():
 			SceneManager.go_to_player_dead()
 			return

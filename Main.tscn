@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://vr7p0c7oothq"]
 
+[ext_resource type="Script" uid="uid://b24t1vlf4bpw0" path="res://scripts/GameState.gd" id="3_trn2v"]
 [ext_resource type="Script" uid="uid://bf2wfxi8xmabi" path="res://scripts/SceneManager.gd" id="4_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://dtuply0kgni77" path="res://scenes/character_selection/CharacterSelection.tscn" id="4_lgr22"]
 [ext_resource type="PackedScene" uid="uid://doa1g3afqybfy" path="res://scenes/player_is_dead/PlayerIsDead.tscn" id="5_3dxm6"]
 [ext_resource type="PackedScene" uid="uid://boyexs1wjnt4b" path="res://scenes/battle/Battle.tscn" id="5_fos0i"]
 [ext_resource type="PackedScene" uid="uid://iewc1grxgtvs" path="res://scenes/home/Home.tscn" id="6_3dxm6"]
@@ -15,11 +17,16 @@ script = ExtResource("10_wkp8b")
 [node name="SceneManager" type="Node" parent="." unique_id=1784193045]
 script = ExtResource("4_cm0pq")
 
-[node name="HomeRoot" parent="." unique_id=498567564 instance=ExtResource("6_3dxm6")]
+[node name="GameState" type="Node" parent="." unique_id=1265183456]
+script = ExtResource("3_trn2v")
 
-[node name="BattleRoot" parent="." unique_id=1225489236 instance=ExtResource("5_fos0i")]
+[node name="Home" parent="." unique_id=498567564 instance=ExtResource("6_3dxm6")]
 
-[node name="PlayerIsDeadRoot" parent="." unique_id=966160191 instance=ExtResource("5_3dxm6")]
+[node name="CharacterSelection" parent="." unique_id=67085868 instance=ExtResource("4_lgr22")]
+
+[node name="Battle" parent="." unique_id=1225489236 instance=ExtResource("5_fos0i")]
+
+[node name="PlayerIsDead" parent="." unique_id=966160191 instance=ExtResource("5_3dxm6")]
 
 [node name="Collision" type="Node2D" parent="." unique_id=1542188132]
 script = ExtResource("6_lgr22")
