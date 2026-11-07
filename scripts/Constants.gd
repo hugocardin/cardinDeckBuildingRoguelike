@@ -1,0 +1,20 @@
+const CARD_DEFAULT_MOVE_DURATION = 0.1
+const CARD_SCENE_PATH = "res://components/card/Card.tscn"
+const CARD_SCALE_DEFAULT = Vector2(0.3, 0.3)
+const CARD_SCALE_BIG = Vector2(0.33, 0.33)
+const CARD_NATIVE_HEIGHT = 1168
+const CARD_HEIGHT = CARD_NATIVE_HEIGHT * CARD_SCALE_DEFAULT.x
+
+const DECK_DRAW_DURATION = 0.5
+const DECK_DRAW_INITIAL_CARDS = ["knight", "knight", "knight", "demon", "demon", "archer", "archer", "archer", "archer"]
+const DECK_POSITION = Vector2(150, 550)
+
+const DISCARD_POSITION = Vector2(150, 550)
+
+const ENEMIES_HAND_TOP_MARGIN = 20
+const ENEMIES_INITIAL_CARDS : Array = ["wraithvine", "orc", "wraithvine"]
+
+const ENEMY_CARD_SCENE_PATH = "res://components/enemy_card/EnemyCard.tscn"
+
+const PLAYER_CARD_COUNT = 4
+const PLAYER_HAND_BOTTOM_MARGIN = 20

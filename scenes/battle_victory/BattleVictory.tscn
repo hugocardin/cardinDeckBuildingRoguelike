@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dnxpxxivvpgyn"]
+
+[ext_resource type="Script" uid="uid://u3as4amch0nb" path="res://scenes/battle_victory/BattleVictory.gd" id="1_dp31f"]
+
+[node name="BattleVictoryRoot" type="Node2D" unique_id=1506620259]
+script = ExtResource("1_dp31f")
+
+[node name="NextBattleButton" type="Button" parent="." unique_id=68791517]
+offset_left = 577.0
+offset_top = 426.0
+offset_right = 673.0
+offset_bottom = 457.0
+text = "Next Battle"
+
+[node name="VictoryText" type="RichTextLabel" parent="." unique_id=1541266728]
+offset_left = 545.0
+offset_top = 325.0
+offset_right = 659.0
+offset_bottom = 348.0
+scale = Vector2(3, 3)
+text = "Victory!"
+
+[connection signal="pressed" from="NextBattleButton" to="." method="_on_next_battle_button_pressed"]

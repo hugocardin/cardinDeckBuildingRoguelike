@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dv1s21ql8yf7a"]
+
+[ext_resource type="Script" uid="uid://hlmtnj38416p" path="res://components/enemy_card/EnemyCard.gd" id="1_no5o5"]
+[ext_resource type="Texture2D" uid="uid://b8p2pf3omfybk" path="res://assets/enemy_cards/orc.jpg" id="2_ke84f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuttk"]
+size = Vector2(784, 1168)
+
+[node name="EnemyCard" type="Node2D" unique_id=1686933852]
+script = ExtResource("1_no5o5")
+
+[node name="EnemyCardImage" type="Sprite2D" parent="." unique_id=546477463]
+position = Vector2(1.335144e-05, 2.3841858e-07)
+texture = ExtResource("2_ke84f")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1683393420]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1546799888]
+shape = SubResource("RectangleShape2D_yuttk")
+
+[node name="Health" type="RichTextLabel" parent="." unique_id=1729390869]
+self_modulate = Color(0, 1, 0, 1)
+offset_left = -392.0
+offset_top = -584.0
+offset_right = -367.0
+offset_bottom = -559.0
+scale = Vector2(7, 7)
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Attack" type="RichTextLabel" parent="." unique_id=1961168600]
+self_modulate = Color(1, 0, 0, 1)
+offset_left = 217.0
+offset_top = -584.0
+offset_right = 242.0
+offset_bottom = -559.0
+scale = Vector2(7, 7)
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ctat3s5tf7hbr"]
+
+[ext_resource type="Script" uid="uid://dc6itfumf4nt1" path="res://components/deck/Deck.gd" id="1_xgsoo"]
+[ext_resource type="Texture2D" uid="uid://580dlai2pyaf" path="res://assets/deckVerso.jpg" id="2_830pb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuttk"]
+size = Vector2(784, 1168)
+
+[node name="Deck" type="Node2D" unique_id=631521557]
+script = ExtResource("1_xgsoo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=53426136]
+z_index = -2
+texture = ExtResource("2_830pb")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=196774735]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=509063696]
+shape = SubResource("RectangleShape2D_yuttk")
+
+[node name="CardCount" type="RichTextLabel" parent="." unique_id=190720630]
+z_index = -2
+offset_left = -125.0
+offset_top = -125.0
+offset_right = -100.0
+offset_bottom = -100.0
+scale = Vector2(10, 10)
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1

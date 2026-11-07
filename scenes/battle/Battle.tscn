@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://boyexs1wjnt4b"]
+
+[ext_resource type="Script" uid="uid://c81j5nokfqgwf" path="res://scenes/battle/CardManager.gd" id="1_kos6x"]
+[ext_resource type="Script" uid="uid://88v4hu16awvl" path="res://scenes/battle/PlayerHand.gd" id="3_22lvc"]
+[ext_resource type="Script" uid="uid://dtpvhi4ft48ry" path="res://scenes/battle/Enemies.gd" id="3_kos6x"]
+[ext_resource type="PackedScene" uid="uid://cd0mrm0winfv6" path="res://components/player/Player.tscn" id="4_nygig"]
+[ext_resource type="PackedScene" uid="uid://ctat3s5tf7hbr" path="res://components/deck/Deck.tscn" id="6_hl5pk"]
+[ext_resource type="PackedScene" uid="uid://bs0wkulxtx64a" path="res://components/discard/Discard.tscn" id="7_jjack"]
+[ext_resource type="Script" uid="uid://jc540a5xmbfe" path="res://scenes/battle/BattleManager.gd" id="8_kos6x"]
+[ext_resource type="Script" uid="uid://bi48mx8qerqpu" path="res://scripts/InputManager.gd" id="8_nygig"]
+
+[node name="Battle" type="Node2D" unique_id=1225489236]
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1015724773]
+script = ExtResource("3_kos6x")
+
+[node name="CardManager" type="Node2D" parent="." unique_id=1054362133]
+script = ExtResource("1_kos6x")
+
+[node name="Player" parent="." unique_id=1279587413 instance=ExtResource("4_nygig")]
+position = Vector2(497, 438)
+
+[node name="PlayerHand" type="Node2D" parent="." unique_id=54393005]
+script = ExtResource("3_22lvc")
+
+[node name="Deck" parent="." unique_id=631521557 instance=ExtResource("6_hl5pk")]
+position = Vector2(150, 550)
+scale = Vector2(0.1, 0.1)
+
+[node name="Discard" parent="." unique_id=1637224165 instance=ExtResource("7_jjack")]
+position = Vector2(930, 550)
+scale = Vector2(0.1, 0.1)
+
+[node name="BattleTimer" type="Timer" parent="." unique_id=443405477]
+
+[node name="EndTurnButton" type="Button" parent="." unique_id=457592452]
+offset_left = 475.0
+offset_top = 589.0
+offset_right = 593.0
+offset_bottom = 620.0
+text = "End Turn"
+
+[node name="BattleManager" type="Node" parent="." unique_id=1882489473]
+script = ExtResource("8_kos6x")
+
+[node name="InputManager" type="Node2D" parent="." unique_id=1320061917]
+script = ExtResource("8_nygig")
+
+[connection signal="pressed" from="EndTurnButton" to="BattleManager" method="_on_end_turn_button_pressed"]

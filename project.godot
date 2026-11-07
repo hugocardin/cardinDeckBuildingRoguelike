@@ -11,16 +11,26 @@ config_version=5
 [application]
 
 config/name="Cardin Deckbuilding Roguelike"
-run/main_scene="uid://vr7p0c7oothq"
+run/main_scene="uid://iewc1grxgtvs"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+CardDatabase="*uid://c170377nr83li"
+Collision="*uid://b07kjm5fuf4be"
+Constants="*uid://bosw7me20g2gm"
+EventBus="*uid://cov8rd8t2i535"
+SceneManager="*uid://bf2wfxi8xmabi"
+
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/size/window_width_override=1000
+window/size/window_height_override=900
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/handheld/orientation=1
 window/vsync/vsync_mode=0
 
 [physics]

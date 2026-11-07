@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://iewc1grxgtvs"]
+
+[ext_resource type="Script" uid="uid://yd8ug6r2ikwb" path="res://scenes/home/Home.gd" id="1_77g6y"]
+
+[node name="HomeRoot" type="Node2D" unique_id=498567564]
+script = ExtResource("1_77g6y")
+
+[node name="StartBattleButton" type="Button" parent="." unique_id=1081770186]
+offset_left = 474.0
+offset_top = 547.0
+offset_right = 570.0
+offset_bottom = 578.0
+text = "Start battle"
+
+[connection signal="pressed" from="StartBattleButton" to="." method="_on_start_battle_button_pressed"]

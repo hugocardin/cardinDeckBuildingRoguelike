@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bs0wkulxtx64a"]
+
+[ext_resource type="Script" uid="uid://5fvqqma8stjo" path="res://components/discard/Discard.gd" id="1_52l7y"]
+[ext_resource type="Texture2D" uid="uid://580dlai2pyaf" path="res://assets/deckVerso.jpg" id="2_xcntc"]
+
+[node name="Discard" type="Node2D" unique_id=1637224165]
+script = ExtResource("1_52l7y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=779408707]
+z_index = -2
+position = Vector2(7.6293945e-06, 1.7166138e-05)
+texture = ExtResource("2_xcntc")
+
+[node name="Quantity" type="RichTextLabel" parent="." unique_id=1898549995]
+z_index = -2
+offset_left = -120.0
+offset_top = -117.0
+offset_right = -96.0
+offset_bottom = -93.5
+scale = Vector2(10, 10)
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://doa1g3afqybfy"]
+
+[ext_resource type="Script" uid="uid://d0cvvhhjm0dvs" path="res://scenes/player_is_dead/PlayerIsDead.gd" id="1_6wbfr"]
+
+[node name="PlayerIsDeadRoot" type="Node2D" unique_id=966160191]
+script = ExtResource("1_6wbfr")
+
+[node name="NewGameButton" type="Button" parent="." unique_id=205253245]
+offset_left = 260.0
+offset_top = 398.0
+offset_right = 403.0
+offset_bottom = 429.0
+text = "Start a new game"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1386471669]
+offset_left = 258.0
+offset_top = 314.0
+offset_right = 592.0
+offset_bottom = 354.0
+text = "You're dead, pwet pwet"
+
+[connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_button_pressed"]
