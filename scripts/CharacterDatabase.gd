@@ -1,10 +1,10 @@
 const CHARACTERS = {
 	"knight": {
-		"health": 30,
+		"health": 50,
 		"starting_cards": ["knight", "knight", "knight", "knight", "knight", "archer", "archer", "archer"]
 	},
 	"sorcerer": {
-		"health": 20,
+		"health": 35,
 		"starting_cards": ["demon", "demon", "demon", "archer", "archer", "archer", "knight", "knight"]
 	}
 }

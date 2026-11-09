@@ -27,17 +27,7 @@ func initialise_cards():
 	deck_cards.shuffle()
 	deck_reference.setup(deck_cards)
 	
-	# TEMP TO HAVE RANDOM ENEMIES
-	var pool = ["orc", "wraithvine"]
-	var count = randi_range(1, 3)
-	var enemies: Array[String] = []
-	for i in count:
-		enemies.append(pool[randi() % pool.size()])
-	# END OF TEMP PART
-	
-	GameState.set_enemies(enemies)
-	
-	var enemy_cards = GameState.current_enemies
+	var enemy_cards: Array[String] = GameState.current_enemies
 	enemies_reference.setup(enemy_cards)
 	
 	EventBus.player_turn_started.emit()

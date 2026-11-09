@@ -6,11 +6,12 @@ var full_health
 var maximum_action
 var all_player_cards
 var current_enemies: Array[String]
+var current_battle_type: Constants.LevelType
 var current_map_nodes: Array[MapNode]
+var current_map_row: int
 
 func _ready() -> void:
-	maximum_action = 3
-	current_enemies = []
+	reset()
 
 func set_character(character_name):
 	var player_character = CharacterDatabase.CHARACTERS[character_name]
@@ -28,3 +29,14 @@ func clear_battle():
 	
 func is_player_dead() -> bool:
 	return current_health <= 0
+	
+func reset() -> void:
+	selected_character_name = null
+	current_health = null
+	full_health = null
+	maximum_action = 3
+	all_player_cards = []
+	current_enemies = []
+	current_battle_type = Constants.LevelType.NORMAL_BATTLE
+	current_map_nodes= []
+	current_map_row = 0

@@ -8,6 +8,4 @@ func _ready() -> void:
 		$VBoxContainer.add_child(button)
 
 func _on_character_selected(character_name: String):
-	GameState.set_character(character_name)
-	
-	SceneManager.go_to_map()
+	EventBus.character_selected.emit(character_name)
