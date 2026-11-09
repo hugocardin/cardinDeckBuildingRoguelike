@@ -209,9 +209,19 @@ func _draw_map() -> void:
 				# Future rows: disabled, normal color
 				btn.disabled = true
 			else:
-				# Enabled row: clickable
-				btn.disabled = false
-				btn.pressed.connect(_on_node_pressed.bind(node))
+				# Enabled row: only reachable nodes are clickable
+				var is_reachable := false
+				if GameState.current_node == null:
+					is_reachable = true  # start of map, all of first row available
+				else:
+					is_reachable = node.id in GameState.current_node.next
+
+				if is_reachable:
+					btn.disabled = false
+					btn.pressed.connect(_on_node_pressed.bind(node))
+				else:
+					btn.disabled = true
+					btn.modulate = Color(0.4, 0.4, 0.4, 0.7)
 			
 			buttons[int(node.id)] = btn
 	
