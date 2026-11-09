@@ -6,9 +6,8 @@ var full_health
 var maximum_action
 var all_player_cards
 var current_enemies: Array[String]
-var current_battle_type: Constants.LevelType
 var current_map_nodes: Array[MapNode]
-var current_map_row: int
+var current_node: MapNode = null
 
 func _ready() -> void:
 	reset()
@@ -37,6 +36,5 @@ func reset() -> void:
 	maximum_action = 3
 	all_player_cards = []
 	current_enemies = []
-	current_battle_type = Constants.LevelType.NORMAL_BATTLE
 	current_map_nodes= []
-	current_map_row = 0
+	current_node = null

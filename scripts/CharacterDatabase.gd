@@ -1,3 +1,6 @@
+class_name CharacterDatabase
+extends RefCounted
+
 const CHARACTERS = {
 	"knight": {
 		"health": 50,

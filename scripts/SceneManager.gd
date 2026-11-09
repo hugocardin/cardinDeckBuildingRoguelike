@@ -16,14 +16,15 @@ func go_to_player_dead():
 func go_to_map():
 	get_tree().change_scene_to_file("res://scenes/map/Map.tscn")
 
-func go_to_battle_victory():
-	GameState.current_map_row += 1
+func go_to_shop():
+	get_tree().change_scene_to_file("res://scenes/shop/Shop.tscn")
 	
-	if GameState.current_map_row <= Constants.MAP_ROWS:
-		get_tree().change_scene_to_file("res://scenes/battle_victory/BattleVictory.tscn")
-	else:
+func go_to_battle_victory():	
+	if GameState.current_node.type == Constants.LevelType.WORLD_BOSS_BATTLE:
 		GameState.reset()
 		go_to_home()
+	else:
+		get_tree().change_scene_to_file("res://scenes/battle_victory/BattleVictory.tscn")
 	
 func _on_character_selected(character_name: String):
 	GameState.set_character(character_name)
@@ -31,11 +32,12 @@ func _on_character_selected(character_name: String):
 	go_to_map()
 
 func _on_node_selected(node: MapNode):
+	GameState.current_node = node
+	
 	if node.type == Constants.LevelType.SHOP:
-		print("Shoppy time")
+		go_to_shop()
 	else:
 		GameState.set_enemies(_get_enemies_by_tier(node.type))
-		GameState.current_battle_type = node.type
 		get_tree().change_scene_to_file("res://scenes/battle/Battle.tscn")
 
 func _get_enemies_by_tier(tier: Constants.LevelType) -> Array[String]:
@@ -51,4 +53,3 @@ func _get_enemies_by_tier(tier: Constants.LevelType) -> Array[String]:
 		var key = keys[randi() % keys.size()]
 		result.append(key)
 	return result
-	get_tree().change_scene_to_file("res://scenes/map/Map.tscn")

@@ -24,21 +24,12 @@ func _ready() -> void:
 	deck_reference = $"../Deck"
 	player_reference = $"../Player"
 	
-	enemies_reference.connect("add_enemy_card_child", _on_add_enemy_card_child)
-	enemies_reference.connect("remove_enemy_card_child", _on_remove_enemy_card_child)
-	
 	EventBus.card_hovered.connect(_on_hovered_card)
 	EventBus.card_hovered_off.connect(_on_hovered_off_card)
 	
 	EventBus.mouse_pressed.connect(_on_mouse_pressed)
 	EventBus.mouse_moved.connect(_on_mouse_moved)
 	EventBus.mouse_released.connect(_on_mouse_released)
-	
-func _on_add_enemy_card_child(enemy_card: EnemyCard):
-	add_child(enemy_card)
-	
-func _on_remove_enemy_card_child(enemy_card: EnemyCard):
-	remove_child(enemy_card)
 	
 func _on_mouse_pressed(item, pos):
 	pressed_item = item

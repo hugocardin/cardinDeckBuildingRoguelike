@@ -22,7 +22,7 @@ func setup(enemies: Array[String]):
 		card_manager_reference.add_child(new_enemy_card)
 		
 		new_enemy_card.setup(enemy_card_name, 
-							CardDatabase.ENEMY_CARDS[GameState.current_battle_type][enemy_card_name], 
+							CardDatabase.ENEMY_CARDS[GameState.current_node.type][enemy_card_name], 
 							Constants.CARD_SCALE_DEFAULT)
 		add_enemy_card(new_enemy_card)
 

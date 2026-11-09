@@ -19,7 +19,7 @@ static func _generate_map() -> Array[MapNode]:
 	for r in range(Constants.MAP_ROWS):
 		var row: Array = []
 		row.resize(Constants.MAP_COLUMNS)
-		var has_node := false
+		var node_has_node := false
 		for c in range(Constants.MAP_COLUMNS):
 			if randf() > Constants.MAP_NODE_CHANCE:
 				row[c] = null
@@ -40,10 +40,10 @@ static func _generate_map() -> Array[MapNode]:
 			type_counts[node_type] = type_counts.get(node_type, 0) + 1
 			row[c] = node
 			flat.append(node)
-			has_node = true
+			node_has_node = true
 			
 		# Guarantee at least one node per row
-		if not has_node:
+		if not node_has_node:
 			var c := randi_range(0, Constants.MAP_COLUMNS - 1)
 			var parent_types: Array = []
 			if r > 0:
@@ -157,16 +157,19 @@ func _draw_map() -> void:
 	var usable_height := screen_height - top_margin - bottom_margin - Constants.MAP_NODE_SIZE.y
 	var row_spacing := usable_height / float(total_rows - 1) if total_rows > 1 else 0.0
 	
-	var img := Image.create(1, 1, false, Image.FORMAT_RGBA8)
-	img.set_pixel(0, 0, Color.WHITE)
-	var line_tex := ImageTexture.create_from_image(img)
-	
 	var rows: Array = []
 	rows.resize(total_rows)
 	for i in rows.size():
 		rows[i] = []
 	for node in nodes:
 		rows[node.row].append(node)
+	
+	# Determine the row that should be enabled
+	var current_row := -1
+	if GameState.current_node != null:
+		current_row = GameState.current_node.row
+
+	var enabled_row := current_row + 1
 	
 	for row_nodes in rows:
 		if row_nodes.is_empty():
@@ -195,21 +198,29 @@ func _draw_map() -> void:
 				screen_height - bottom_margin - Constants.MAP_NODE_SIZE.y - float(node.row) * row_spacing
 			)
 			
-			# Disable past and future rows
-			if node.row < GameState.current_map_row:
+			# Only current row is enabled/clickable
+			# Past rows (below) are greyed out + disabled
+			# Future rows are disabled but keep normal color
+			if node.row < enabled_row:
+				# Past rows: greyed out + disabled
 				btn.disabled = true
-				btn.modulate = Color(0.4, 0.4, 0.4, 0.7)  # gray past
-			elif node.row > GameState.current_map_row:
-				btn.disabled = true  # locked future, normal color
+				btn.modulate = Color(0.4, 0.4, 0.4, 0.7)
+			elif node.row > enabled_row:
+				# Future rows: disabled, normal color
+				btn.disabled = true
 			else:
-				btn.pressed.connect(_on_node_pressed.bind(node))  # only current row clickable
+				# Enabled row: clickable
+				btn.disabled = false
+				btn.pressed.connect(_on_node_pressed.bind(node))
 			
 			buttons[int(node.id)] = btn
 	
+	# Draw paths (unchanged)
 	for node in nodes:
 		var from_btn := buttons.get(int(node.id)) as TextureButton
 		if from_btn == null:
 			continue
+			
 		for next_id in node.next:
 			var to_btn := buttons.get(int(next_id)) as TextureButton
 			if to_btn == null:
@@ -218,10 +229,10 @@ func _draw_map() -> void:
 			var to_center := to_btn.position + Constants.MAP_NODE_SIZE / 2.0
 			var delta := to_center - from_center
 			var sprite := Sprite2D.new()
-			sprite.texture = line_tex
+			sprite.texture = Constants.PATH_PATH
 			sprite.centered = true
 			sprite.position = (from_center + to_center) * 0.5
 			sprite.rotation = delta.angle()
-			sprite.scale = Vector2(delta.length(), 2.0)
+			sprite.scale = Vector2(delta.length() / Constants.PATH_PATH.get_width(), 0.15)
 			sprite.z_index = 0
 			add_child(sprite)

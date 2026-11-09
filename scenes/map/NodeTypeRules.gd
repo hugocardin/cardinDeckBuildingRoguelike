@@ -6,12 +6,13 @@ extends Resource
 @export var max_consecutive: int = 1
 @export var max_in_a_world: int = 99
 
-static func make_rule(type: Constants.LevelType, weight_percent: int, max_consecutive: int, max_in_a_world: int) -> NodeTypeRules:
+static func make_rule(node_type: Constants.LevelType, weight_percent: int, 
+					  max_consecutive_nodes: int, max_node_in_a_world: int) -> NodeTypeRules:
 	var r := NodeTypeRules.new()
-	r.type = type
+	r.type = node_type
 	r.weight = weight_percent
-	r.max_consecutive = max_consecutive
-	r.max_in_a_world = max_in_a_world
+	r.max_consecutive = max_consecutive_nodes
+	r.max_in_a_world = max_node_in_a_world
 	return r
 	
 static func get_rules() -> Array[NodeTypeRules]:

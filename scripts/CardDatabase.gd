@@ -1,3 +1,6 @@
+class_name CardDatabase
+extends RefCounted
+
 const CARDS = {
 	"knight": {
 		"attack": 2,

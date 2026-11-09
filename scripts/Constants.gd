@@ -1,3 +1,6 @@
+class_name Constants
+extends RefCounted
+
 const CARD_DEFAULT_MOVE_DURATION := 0.1
 const CARD_SCENE_PATH := "res://components/card/Card.tscn"
 const CARD_SCALE_DEFAULT := Vector2(0.3, 0.3)
@@ -24,6 +27,7 @@ const MAP_COLUMNS := 4
 const MAP_NODE_SIZE := Vector2(128, 128)
 const MAP_MIN_NODE_SPACING := 250
 const MAP_NODE_CHANCE := 0.65
+const PATH_PATH := preload("res://assets/path.png")
 
 enum LevelType { NORMAL_BATTLE, ELITE_BATTLE, WORLD_BOSS_BATTLE, SHOP }
 
