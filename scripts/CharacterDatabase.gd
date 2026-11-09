@@ -8,6 +8,6 @@ const CHARACTERS = {
 	},
 	"sorcerer": {
 		"health": 35,
-		"starting_cards": ["demon", "demon", "demon", "archer", "archer", "archer", "knight", "knight"]
+		"starting_cards": ["demon", "demon", "archer", "archer", "archer", "knight", "knight", "knight"]
 	}
 }

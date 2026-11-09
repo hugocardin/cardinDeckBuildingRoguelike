@@ -5,9 +5,11 @@ func _ready() -> void:
 	EventBus.character_selected.connect(_on_character_selected)
 
 func go_to_home():
+	GameState.reset()
+	
 	get_tree().change_scene_to_file("res://scenes/home/Home.tscn")
 
-func go_to_character_selection():
+func go_to_character_selection():	
 	get_tree().change_scene_to_file("res://scenes/character_selection/CharacterSelection.tscn")
 
 func go_to_player_dead():
@@ -21,7 +23,6 @@ func go_to_shop():
 	
 func go_to_battle_victory():	
 	if GameState.current_node.type == Constants.LevelType.WORLD_BOSS_BATTLE:
-		GameState.reset()
 		go_to_home()
 	else:
 		get_tree().change_scene_to_file("res://scenes/battle_victory/BattleVictory.tscn")

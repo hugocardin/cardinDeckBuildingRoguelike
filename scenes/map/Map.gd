@@ -225,7 +225,7 @@ func _draw_map() -> void:
 			
 			buttons[int(node.id)] = btn
 	
-	# Draw paths (unchanged)
+	# Draw paths
 	for node in nodes:
 		var from_btn := buttons.get(int(node.id)) as TextureButton
 		if from_btn == null:
