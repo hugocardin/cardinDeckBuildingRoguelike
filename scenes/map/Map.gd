@@ -29,12 +29,12 @@ func _on_node_pressed(node: MapNode) -> void:
 	EventBus.node_selected.emit(node)
 	
 static func _generate_map() -> Array[MapNode]:
-	var nodes: Array = []
+	var nodes: Array[Array] = []
 	var flat: Array[MapNode] = []
 	var type_counts: Dictionary = {}
 	var next_id: int = 0
 	
-	for r in range(Constants.MAP_ROWS):
+	for r: int in range(Constants.MAP_ROWS):
 		var row: Array = []
 		row.resize(Constants.MAP_COLUMNS)
 		var node_has_node: bool = false
@@ -47,7 +47,7 @@ static func _generate_map() -> Array[MapNode]:
 			var parent_types: Array = []
 			if r > 0:
 				var prev_row: Array = nodes[r - 1]
-				for prev in prev_row:
+				for prev: MapNode in prev_row:
 					if prev != null:
 						parent_types.append(prev.type)
 			var node_type: Constants.LevelType = _pick_weighted_type(parent_types, type_counts)
@@ -68,7 +68,7 @@ static func _generate_map() -> Array[MapNode]:
 			var parent_types: Array = []
 			if r > 0:
 				var prev_row: Array = nodes[r - 1]
-				for prev in prev_row:
+				for prev: MapNode in prev_row:
 					if prev != null:
 						parent_types.append(prev.type)
 			var node_type: Constants.LevelType = _pick_weighted_type(parent_types, type_counts)
@@ -141,8 +141,8 @@ static func create_links(nodes: Array[MapNode]) -> void:
 		if next_row.is_empty() or current.is_empty():
 			continue
 		
-		current.sort_custom(func(a, b): return a.col < b.col)
-		next_row.sort_custom(func(a, b): return a.col < b.col)
+		current.sort_custom(func(a: MapNode, b: MapNode) -> bool: return a.col < b.col)
+		next_row.sort_custom(func(a: MapNode, b: MapNode) -> bool: return a.col < b.col)
 		
 		var n_src: int = current.size()
 		var n_tgt: int = next_row.size()
@@ -200,8 +200,8 @@ func _draw_map() -> void:
 		if row_nodes.is_empty():
 			continue
 			
-		row_nodes.sort_custom(func(a, b): return a.col < b.col)
-		var count = row_nodes.size()
+		row_nodes.sort_custom(func(a: MapNode, b: MapNode) -> bool: return a.col < b.col)
+		var count: int = row_nodes.size()
 		var spacing: float = float(Constants.MAP_MIN_NODE_SPACING)
 		var max_width: float= screen_width - side_margin * 2.0
 		if count > 1 and (count - 1) * spacing > max_width:

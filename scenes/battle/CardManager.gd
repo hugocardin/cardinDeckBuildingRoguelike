@@ -102,7 +102,7 @@ func _on_hovered_off_card(card: Card) -> void:
 	if !is_dragging:
 		highlight_card(card, false)
 		
-		var new_hovered_card = Collision.check_for_card()
+		var new_hovered_card: Card = Collision.check_for_card()
 		if new_hovered_card:
 			highlight_card(new_hovered_card, true)
 		else:
