@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yuttk"]
 size = Vector2(784.5, 1168)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42x1r"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="Card" type="Node2D" unique_id=836360262]
 script = ExtResource("1_42x1r")
 
@@ -39,6 +42,15 @@ offset_bottom = -559.0
 scale = Vector2(7, 7)
 text = "999"
 vertical_alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="." unique_id=1372852587]
+offset_left = -392.0
+offset_top = 469.00003
+offset_right = -235.20001
+offset_bottom = 492.00003
+scale = Vector2(5, 5)
+theme_override_styles/normal = SubResource("StyleBoxFlat_42x1r")
+text = "Super Knight"
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -5,25 +5,25 @@ var upgrade_level: int = 0
 func _init(id: String, level: int = 0) -> void:
 	card_id = id; upgrade_level = level
 
+func _def() -> Dictionary:
+	return CardDatabase.CARDS[card_id]
+
+func definition() -> Dictionary:
+	return CardDatabase.CARDS[card_id]
+
 func max_upgrades() -> int:
-	return CardDatabase.CARDS[card_id].get("upgrades", []).size()
+	return CardUpgradeRule.max_upgrades(self)
 
 func can_upgrade() -> bool:
-	return upgrade_level < max_upgrades()
+	var m := max_upgrades()
+	return m == Constants.CARD_INFINITE_UPGRADES or upgrade_level < m
 
-func upgrade() -> bool:
-	if not can_upgrade(): return false
-	upgrade_level += 1
-	return true
-
-func get_stat(stat: String) -> int:
-	var def: Dictionary = CardDatabase.CARDS[card_id]
-	var value: int = def.get(stat, 0)
+func upgrade() -> void:
+	if can_upgrade(): 
+		upgrade_level += 1
 	
-	for i: int in upgrade_level:
-		value += def["upgrades"][i].get(stat, 0)
-		
-	return value
+func get_stat(stat: String) -> int:
+	return definition().get(stat, 0) + CardUpgradeRule.bonus(self, stat)
 
 func display_name() -> String:
 	var base := card_id.capitalize()

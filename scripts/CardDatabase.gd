@@ -4,15 +4,26 @@ extends RefCounted
 const CARDS: Dictionary[String, Dictionary] = {
 	"knight": {
 		"attack": 2,
-		"shield": 6
+		"shield": 6,
+		"max_upgrades": 1,
+		"upgrade": { "type": "flat", "shield": 3 }
 	},
 	"archer": {
 		"attack": 7,
-		"shield": 1
+		"shield": 1,
+		"max_upgrades": 1,
+		"upgrade": { "type": "flat", "attack": 3 }
 	},
 	"demon": {
 		"attack": 9,
-		"shield": 9
+		"shield": 9,
+		"upgrade": { "type": "steps", "list": [{"attack": 10}, {"shield": 10}, {"attack": 10, "shield": 10}] }
+	},
+	"berserker": { 
+		"attack": 11, 
+		"shield": 0,
+		"max_upgrades": -1,
+		"upgrade": {"type": "escalating", "stat": "attack", "start": 1, "step": 1} 
 	}
 }
 
