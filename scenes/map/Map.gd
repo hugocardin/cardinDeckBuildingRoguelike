@@ -1,6 +1,20 @@
 extends Node2D
 
+var background_reference: Sprite2D
+var nodes_reference: Node2D
+
+var paths_reference: Node2D
+
 func _ready() -> void:
+	nodes_reference = $Nodes
+	paths_reference = $Paths
+	
+	background_reference = $Background
+	background_reference.texture = Constants.MAP_BACKGROUNDS[randi() % Constants.MAP_BACKGROUNDS.size()]
+	var viewport_size := get_viewport().get_visible_rect().size
+	var tex_size := background_reference.texture.get_size()
+	background_reference.scale = viewport_size / tex_size
+	
 	if GameState.current_map_nodes.is_empty():
 		var nodes: Array[MapNode] = _generate_map()
 		create_links(nodes)
@@ -24,6 +38,7 @@ static func _generate_map() -> Array[MapNode]:
 			if randf() > Constants.MAP_NODE_CHANCE:
 				row[c] = null
 				continue
+				
 			var parent_types: Array = []
 			if r > 0:
 				var prev_row: Array = nodes[r - 1]
@@ -139,11 +154,10 @@ func _draw_map() -> void:
 	var nodes := GameState.current_map_nodes
 	
 	# Clear previous icons and lines
-	for child in $Nodes.get_children():
+	for child in nodes_reference.get_children():
 		child.queue_free()
-	for child in get_children():
-		if child is Sprite2D and child != $Nodes:
-			child.queue_free()
+	for child in paths_reference.get_children():
+		child.queue_free()
 	
 	var buttons := {}
 	var screen_size := get_viewport().get_visible_rect().size
@@ -192,7 +206,7 @@ func _draw_map() -> void:
 			btn.size = Constants.MAP_NODE_SIZE
 			btn.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
 			btn.z_index = 1
-			$Nodes.add_child(btn)
+			nodes_reference.add_child(btn)
 			btn.position = Vector2(
 				first_center + i * spacing - Constants.MAP_NODE_SIZE.x / 2.0,
 				screen_height - bottom_margin - Constants.MAP_NODE_SIZE.y - float(node.row) * row_spacing
@@ -245,4 +259,4 @@ func _draw_map() -> void:
 			sprite.rotation = delta.angle()
 			sprite.scale = Vector2(delta.length() / Constants.PATH_PATH.get_width(), 0.15)
 			sprite.z_index = 0
-			add_child(sprite)
+			paths_reference.add_child(sprite)

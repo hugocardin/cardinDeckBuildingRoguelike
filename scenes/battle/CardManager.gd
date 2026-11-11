@@ -58,7 +58,8 @@ func _on_mouse_released():
 	elif pressed_item is EnemyCard:
 		EventBus.enemy_card_clicked.emit(pressed_item)
 	elif pressed_item is Deck:
-		EventBus.left_mouse_button_pressed_on_deck.emit()
+		pass
+		# TODO Show deck's cards
 	
 	pressed_item = null
 	is_dragging = false

@@ -37,3 +37,16 @@ const LEVEL_ICONS := {
 	Constants.LevelType.WORLD_BOSS_BATTLE: preload("res://assets/nodes/boss.png"),
 	Constants.LevelType.SHOP: preload("res://assets/nodes/shop.png")
 }
+
+const MAP_BACKGROUNDS = [
+	preload("res://assets/backgrounds/cloud_castle.jpg"),
+	preload("res://assets/backgrounds/dinosaur_meadow.jpg"),
+	preload("res://assets/backgrounds/enchanted_forest.jpg"),
+	preload("res://assets/backgrounds/floating_candy_islands.jpg"),
+	preload("res://assets/backgrounds/flower_power_garden.jpg"),
+	preload("res://assets/backgrounds/magic_librairy_sky.jpg"),
+	preload("res://assets/backgrounds/snowy_animal_village.jpg"),
+	preload("res://assets/backgrounds/space_playground.jpg"),
+	preload("res://assets/backgrounds/sunny_beach.jpg"),
+	preload("res://assets/backgrounds/underwater_reef.jpg")
+]

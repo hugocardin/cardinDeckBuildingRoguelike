@@ -40,19 +40,20 @@ func _on_enemy_is_dead(enemy_card: EnemyCard):
 		SceneManager.go_to_battle_victory()
 
 func update_hand_positions():
-	for i in range(enemy_cards.size()):
+	var enemies_count = enemy_cards.size()
+	
+	for i in range(enemies_count):
 		var enemy_card = enemy_cards[i]
-		var x = calculate_card_position(i)
+		var x = calculate_card_position(i, enemies_count)
 		var target = Vector2(x, Constants.ENEMIES_Y)
 		animate_card_to_position(enemy_card, target, Constants.CARD_DEFAULT_MOVE_DURATION)
 
-func calculate_card_position(index: int) -> float:
-	var count = enemy_cards.size()
+func calculate_card_position(index: int, total_count: int) -> float:
 	var screen_width = center_screen_x * 2.0
 	
-	var total_cards_width = count * Constants.CARD_WIDTH
+	var total_cards_width = total_count * Constants.CARD_WIDTH
 	var total_spacing = screen_width - total_cards_width
-	var gap = total_spacing / (count + 1)
+	var gap = total_spacing / (total_count + 1)
 	
 	return gap + index * (Constants.CARD_WIDTH + gap) + Constants.CARD_WIDTH / 2.0
 	

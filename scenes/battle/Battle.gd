@@ -46,7 +46,7 @@ func _on_end_turn_button_pressed() -> void:
 	end_button_reference.disabled = false
 
 func opponent_turn() -> void:
-	for enemy_card in enemies_reference.enemy_cards:
+	for enemy_card in enemies_reference.enemy_cards.duplicate():
 		player_reference.take_damage(enemy_card.attribute_attack)
 		battle_timer.start()
 		await battle_timer.timeout
