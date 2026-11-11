@@ -8,4 +8,4 @@ var col: int
 var next: Array[int] = []
 
 func _init() -> void:
-	next = [] as Array[int]
+	next = []

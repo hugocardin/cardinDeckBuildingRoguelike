@@ -1,7 +1,7 @@
 class_name CharacterDatabase
 extends RefCounted
 
-const CHARACTERS = {
+const CHARACTERS: Dictionary[String, Dictionary] = {
 	"knight": {
 		"health": 50,
 		"starting_cards": ["knight", "knight", "knight", "knight", "knight", "archer", "archer", "archer"]

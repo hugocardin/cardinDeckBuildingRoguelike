@@ -1,38 +1,38 @@
 extends Node2D
 
-var shield
-var current_action
+class_name Player
 
-var health_reference
-var shield_reference
-var action_reference
+var shield: int
+var current_action: int
+
+var health_reference: RichTextLabel
+var shield_reference: RichTextLabel
+var action_reference: RichTextLabel
 
 func _ready() -> void:
 	health_reference = $Health
 	shield_reference = $Shield
 	action_reference = $Actions
 	
-	EventBus.player_turn_started.connect(_on_player_turn_started)
-	
-func setup():
+func setup() -> void:
 	_update_health_text()
 	_update_shield_text()
 	_update_action_text()
 	
-func _update_health_text():
+func _update_health_text() -> void:
 	health_reference.text = str(GameState.current_health) + " / " + str(GameState.full_health) + " PV"
 	
-func _update_shield_text():
+func _update_shield_text() -> void:
 	shield_reference.text = str(shield) + " shield"
 
-func _update_action_text():
+func _update_action_text() -> void:
 	action_reference.text = str(current_action) + " / " + str(GameState.maximum_action)
 	
-func add_shield(shield_added: int):
+func add_shield(shield_added: int) -> void:
 	shield += shield_added
 	_update_shield_text()
 	
-func take_damage(damage: int):
+func take_damage(damage: int) -> void:
 	damage -= shield
 	
 	if damage <= 0:
@@ -47,14 +47,14 @@ func take_damage(damage: int):
 	_update_health_text()
 	_update_shield_text()
 	
-func _on_player_turn_started():
+func player_turn_started() -> void:
 	shield = 0
 	current_action = GameState.maximum_action
 	
 	_update_shield_text()
 	_update_action_text()
 
-func decrement_actions():
+func decrement_actions() -> void:
 	current_action -= 1
 	_update_action_text()
 
