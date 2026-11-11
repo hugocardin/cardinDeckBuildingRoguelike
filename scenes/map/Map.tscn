@@ -5,4 +5,9 @@
 [node name="Map" type="Node2D" unique_id=1902727003]
 script = ExtResource("1_bslxg")
 
+[node name="Background" type="Sprite2D" parent="." unique_id=881877784]
+centered = false
+
 [node name="Nodes" type="Node2D" parent="." unique_id=2146136840]
+
+[node name="Paths" type="Node2D" parent="." unique_id=1701484872]

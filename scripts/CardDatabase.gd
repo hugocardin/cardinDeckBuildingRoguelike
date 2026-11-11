@@ -1,7 +1,7 @@
 class_name CardDatabase
 extends RefCounted
 
-const CARDS = {
+const CARDS: Dictionary[String, Dictionary] = {
 	"knight": {
 		"attack": 2,
 		"shield": 6
@@ -16,7 +16,7 @@ const CARDS = {
 	}
 }
 
-const ENEMY_CARDS = {
+const ENEMY_CARDS: Dictionary[Constants.LevelType, Dictionary] = {
 	Constants.LevelType.NORMAL_BATTLE: {
 		"orc": {
 			"attack": 3,
