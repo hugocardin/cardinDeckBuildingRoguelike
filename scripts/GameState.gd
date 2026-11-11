@@ -1,7 +1,5 @@
 extends Node
 
-enum BATTLE_CURRENT_TURN {PLAYER, OPONNENT}
-
 var selected_character_name: String
 var current_health: int
 var full_health: int
@@ -11,7 +9,6 @@ var current_enemies: Array[String]
 var current_map_nodes: Array[MapNode]
 var map_background_index: int
 var current_node: MapNode
-var battle_current_turn: BATTLE_CURRENT_TURN
 
 func _ready() -> void:
 	reset()
@@ -32,9 +29,6 @@ func clear_battle() -> void:
 	
 func is_player_dead() -> bool:
 	return current_health <= 0
-
-func is_player_turn() -> bool:
-	return battle_current_turn == BATTLE_CURRENT_TURN.PLAYER
 	
 func reset() -> void:
 	selected_character_name = ""
@@ -45,5 +39,4 @@ func reset() -> void:
 	current_enemies = []
 	current_map_nodes= []
 	current_node = null
-	battle_current_turn = BATTLE_CURRENT_TURN.PLAYER
 	map_background_index = 0

@@ -1,7 +1,13 @@
+class_name Battle
+
 extends Node
 
 var battle_timer: Timer
 
+enum BATTLE_CURRENT_TURN {PLAYER, OPONNENT}
+
+var battle_current_turn: BATTLE_CURRENT_TURN
+	
 var enemies_reference: Enemies
 var player_reference: Player
 var deck_reference: Deck
@@ -18,32 +24,36 @@ func _ready() -> void:
 	deck_reference = $Deck
 	end_button_reference = $EndTurnButton
 	
-	initialise_cards()
+	_initialise_cards()
 	
-func initialise_cards() -> void:
+func _initialise_cards() -> void:
+	battle_current_turn = BATTLE_CURRENT_TURN.PLAYER
+	
 	player_reference.setup()
 	player_reference.player_turn_started()
 	
 	var deck_cards: Array[String] = GameState.all_player_cards.duplicate()
 	deck_cards.shuffle()
 	deck_reference.setup(deck_cards)
-	deck_reference.draw_initial_cards()
+	deck_reference.refill_hand()
 	
 	var enemy_cards: Array[String] = GameState.current_enemies
 	enemies_reference.setup(enemy_cards)
 	
+func is_player_turn() -> bool:
+	return battle_current_turn == BATTLE_CURRENT_TURN.PLAYER
 
 func _on_end_turn_button_pressed() -> void:
 	end_button_reference.text = "Enemy turn"
 	end_button_reference.disabled = true
-	GameState.battle_current_turn = GameState.BATTLE_CURRENT_TURN.OPONNENT
+	battle_current_turn = BATTLE_CURRENT_TURN.OPONNENT
 	
 	await opponent_turn()
 	
 	if !GameState.is_player_dead():
 		end_button_reference.text = "End turn"
 		end_button_reference.disabled = false
-		GameState.battle_current_turn = GameState.BATTLE_CURRENT_TURN.PLAYER
+		battle_current_turn = BATTLE_CURRENT_TURN.PLAYER
 		
 		player_reference.player_turn_started()
 

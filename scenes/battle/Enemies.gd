@@ -49,10 +49,10 @@ func update_hand_positions() -> void:
 		animate_card_to_position(enemy_card, target, Constants.CARD_DEFAULT_MOVE_DURATION)
 
 func calculate_card_position(index: int, total_count: int) -> float:
-	var screen_width = center_screen_x * 2.0
-	var total_cards_width = total_count * Constants.CARD_WIDTH
-	var total_spacing = screen_width - total_cards_width
-	var gap = total_spacing / (total_count + 1)
+	var screen_width: float = center_screen_x * 2.0
+	var total_cards_width: float = total_count * Constants.CARD_WIDTH
+	var total_spacing: float = screen_width - total_cards_width
+	var gap: float = total_spacing / (total_count + 1)
 	
 	return gap + index * (Constants.CARD_WIDTH + gap) + Constants.CARD_WIDTH / 2.0
 	

@@ -6,7 +6,7 @@ var cards : Array[Card]
 var hand_y: float
 
 func _ready() -> void:
-	var h = get_viewport().get_visible_rect().size.y
+	var h: float = get_viewport().get_visible_rect().size.y
 	hand_y = h - Constants.PLAYER_HAND_BOTTOM_MARGIN - Constants.CARD_HEIGHT / 2.0
 	cards = []
 

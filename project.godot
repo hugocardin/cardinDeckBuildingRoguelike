@@ -22,6 +22,10 @@ EventBus="*uid://cov8rd8t2i535"
 GameState="*uid://b24t1vlf4bpw0"
 SceneManager="*uid://bf2wfxi8xmabi"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+
 [display]
 
 window/size/viewport_width=1080

@@ -131,7 +131,7 @@ static func create_links(nodes: Array[MapNode]) -> void:
 	var rows: Array[Array] = []
 	rows.resize(Constants.MAP_ROWS + 1)
 	for i in range(rows.size()):
-		rows[i] = []
+		rows[i] = [] as Array[MapNode]
 	for node in nodes:
 		rows[node.row].append(node)
 	

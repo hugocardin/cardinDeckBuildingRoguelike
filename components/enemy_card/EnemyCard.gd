@@ -15,7 +15,7 @@ func _ready() -> void:
 	attack_reference = $Attack
 	enemy_card_image_reference = $EnemyCardImage
 
-func setup(card_name, attributes, card_scale: Vector2 = Vector2.ONE) -> void:
+func setup(card_name: String, attributes: Dictionary, card_scale: Vector2 = Vector2.ONE) -> void:
 	attribut_card_name = card_name
 	scale = card_scale
 	

@@ -10,11 +10,12 @@ var is_dragging: bool
 var screen_size: Vector2
 var is_hovering_on_card: bool
 
-var player_hand_reference
+var player_hand_reference: PlayerHand
 var discard_reference: Discard
 var enemies_reference: Enemies
 var deck_reference: Deck
 var player_reference: Player
+var battle_reference: Battle
 
 func _ready() -> void:
 	pressed_item = null
@@ -26,6 +27,7 @@ func _ready() -> void:
 	enemies_reference = $"../Enemies"
 	deck_reference = $"../Deck"
 	player_reference = $"../Player"
+	battle_reference = $".."
 	
 	EventBus.card_hovered.connect(_on_hovered_card)
 	EventBus.card_hovered_off.connect(_on_hovered_off_card)
@@ -35,7 +37,7 @@ func _ready() -> void:
 	EventBus.mouse_released.connect(_on_mouse_released)
 	
 func _on_mouse_pressed(item: Variant, pos: Vector2) -> void:
-	if GameState.is_player_turn():
+	if battle_reference.is_player_turn():
 		pressed_item = item
 		press_position = pos
 		is_dragging = false
@@ -59,7 +61,7 @@ func _on_mouse_released() -> void:
 			finish_drag()
 		else:
 			print("Card tapped")
-	elif GameState.is_player_turn():
+	elif battle_reference.is_player_turn():
 		if pressed_item is EnemyCard:
 			# TODO connect to show enemy card details
 			EventBus.enemy_card_clicked.emit(pressed_item)
@@ -71,10 +73,10 @@ func _on_mouse_released() -> void:
 	
 func finish_drag() -> void:
 	if pressed_item is Card:
-		var enemy_card_found = Collision.check_for_enemy_card()
+		var enemy_card_found: EnemyCard = Collision.check_for_enemy_card()
 		is_hovering_on_card = false
 		
-		if GameState.is_player_turn() && player_reference.has_actions() and enemy_card_found:
+		if battle_reference.is_player_turn() && player_reference.has_actions() and enemy_card_found:
 			pressed_item.scale = Constants.CARD_SCALE_BIG
 			player_reference.decrement_actions()
 			player_hand_reference.remove_card_to_hand(pressed_item)

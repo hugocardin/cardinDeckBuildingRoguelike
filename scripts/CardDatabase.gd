@@ -20,47 +20,47 @@ const ENEMY_CARDS: Dictionary[Constants.LevelType, Dictionary] = {
 	Constants.LevelType.NORMAL_BATTLE: {
 		"orc": {
 			"attack": 3,
-			"health": 1 #20
+			"health": 20
 		},
 		"wraithvine": {
 			"attack": 9,
-			"health": 1 #15
+			"health": 15
 		},
 		"gobelin": {
 			"attack": 3,
-			"health": 1 #10
+			"health": 10
 		},
 		"skeleton": {
 			"attack": 5,
-			"health": 1 #17
+			"health": 17
 		},
 		"wolf": {
 			"attack": 10,
-			"health": 1 #13
+			"health": 13
 		}
 	},
 	Constants.LevelType.ELITE_BATTLE : {
 		"armored_orc": {
 			"attack": 10,
-			"health": 1 #32
+			"health": 32
 		},
 		"dark_knight": {
 			"attack": 15,
-			"health": 1 #27
+			"health": 27
 		},
 		"corrupted_druid": {
 			"attack": 13,
-			"health": 1 #30
+			"health": 30
 		}
 	},
 	Constants.LevelType.WORLD_BOSS_BATTLE: {
 		"dragon": {
 			"attack": 17,
-			"health": 1 #150
+			"health": 150
 		},
 		"lich_king": {
 			"attack": 20,
-			"health": 1 #110
+			"health": 110
 		}
 	}
 }

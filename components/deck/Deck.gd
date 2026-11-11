@@ -50,7 +50,7 @@ func draw_card() -> void:
 func _set_card_count_text() -> void:
 	card_count_reference.text = str(player_deck.size())
 	
-func draw_initial_cards() -> void:
+func refill_hand() -> void:
 	for i: int in range(Constants.PLAYER_CARD_COUNT - player_hand_reference.cards.size()):
 		draw_card()
 		
