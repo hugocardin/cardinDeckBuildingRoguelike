@@ -4,7 +4,7 @@ var selected_character_name: String
 var current_health: int
 var full_health: int
 var maximum_action: int
-var all_player_cards: Array[String]
+var all_player_cards: Array[CardInstance]
 var current_enemies: Array[String]
 var current_map_nodes: Array[MapNode]
 var map_background_index: int
@@ -19,7 +19,10 @@ func set_character(character_name: String) -> void:
 	selected_character_name = character_name
 	full_health = player_character["health"]
 	current_health = full_health
-	all_player_cards.assign(player_character["starting_cards"].duplicate())
+	
+	all_player_cards = []
+	for card_id: String in player_character["starting_cards"]:
+		all_player_cards.append(CardInstance.new(card_id))
 
 func set_enemies(enemies: Array[String]) -> void:
 	current_enemies = enemies.duplicate()

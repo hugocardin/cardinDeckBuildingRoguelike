@@ -80,7 +80,7 @@ func finish_drag() -> void:
 			pressed_item.scale = Constants.CARD_SCALE_BIG
 			player_reference.decrement_actions()
 			player_hand_reference.remove_card_to_hand(pressed_item)
-			discard_reference.add_card(pressed_item.attribut_card_name)
+			discard_reference.add_card(pressed_item.instance)
 			deck_reference.draw_card()
 			
 			if pressed_item.attribut_shield:

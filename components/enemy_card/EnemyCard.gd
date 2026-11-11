@@ -2,7 +2,7 @@ class_name EnemyCard
 
 extends Node2D
 
-var attribut_card_name: String
+var attribut_card_id: String
 var attribute_health: int
 var attribute_attack: int
 
@@ -15,8 +15,8 @@ func _ready() -> void:
 	attack_reference = $Attack
 	enemy_card_image_reference = $EnemyCardImage
 
-func setup(card_name: String, attributes: Dictionary, card_scale: Vector2 = Vector2.ONE) -> void:
-	attribut_card_name = card_name
+func setup(card_id: String, attributes: Dictionary, card_scale: Vector2 = Vector2.ONE) -> void:
+	attribut_card_id = card_id
 	scale = card_scale
 	
 	attribute_health = attributes["health"]
@@ -25,7 +25,7 @@ func setup(card_name: String, attributes: Dictionary, card_scale: Vector2 = Vect
 	health_reference.text = str(attribute_health)
 	attack_reference.text = str(attribute_attack)
 	
-	var image_path: String = "res://assets/enemy_cards/" + card_name + ".jpg"
+	var image_path: String = "res://assets/enemy_cards/" + card_id + ".jpg"
 	enemy_card_image_reference.texture = load(image_path)
 	
 func get_width() -> float:
