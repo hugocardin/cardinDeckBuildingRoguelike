@@ -29,6 +29,7 @@ func draw_card():
 		
 	if player_deck.size() == 0:
 		player_deck = discard_reference.empty_discard()
+		player_deck.shuffle()
 	
 	# If no card in the discard, none will be added into the player's decks, can't draw
 	if player_deck.size() == 0:
