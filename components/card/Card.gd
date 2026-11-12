@@ -29,19 +29,21 @@ func _on_area_2d_mouse_exited() -> void:
 	
 func setup(card_instance: CardInstance, card_scale: Vector2 = Vector2.ONE) -> void:
 	instance = card_instance
-	attribut_name = instance.display_name()
 	scale = card_scale
 	
 	var image_path: String = "res://assets/cards/" + instance.card_id + ".jpg"
 	card_image_reference.texture = load(image_path)
 	
-	name_reference.text = instance.display_name()
-	
 	refresh()
 	
 func refresh() -> void:
+	if instance == null:
+		return
+		
 	attribut_attack = instance.get_stat("attack")
 	attribut_shield = instance.get_stat("shield")
+	attribut_name = instance.display_name()
 	
 	attack_text_reference.text = str(attribut_attack)
 	shield_text_reference.text = str(attribut_shield)
+	name_reference.text = instance.display_name()

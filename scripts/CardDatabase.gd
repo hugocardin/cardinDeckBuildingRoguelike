@@ -22,7 +22,7 @@ const CARDS: Dictionary[String, Dictionary] = {
 	"berserker": { 
 		"attack": 11, 
 		"shield": 0,
-		"max_upgrades": -1,
+		"max_upgrades": Constants.CARD_INFINITE_UPGRADES,
 		"upgrade": {"type": "escalating", "stat": "attack", "start": 1, "step": 1} 
 	}
 }

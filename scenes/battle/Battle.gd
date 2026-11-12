@@ -32,10 +32,7 @@ func _initialise_cards() -> void:
 	player_reference.setup()
 	player_reference.player_turn_started()
 	
-	var deck_cards: Array[CardInstance] = []
-	for card_instance: CardInstance in GameState.all_player_cards:
-		deck_cards.append(card_instance.copy())
-	
+	var deck_cards: Array[CardInstance] = GameState.all_player_cards.duplicate()
 	deck_cards.shuffle()
 	deck_reference.setup(deck_cards)
 	deck_reference.refill_hand()

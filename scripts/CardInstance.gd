@@ -5,10 +5,7 @@ var upgrade_level: int = 0
 func _init(id: String, level: int = 0) -> void:
 	card_id = id; upgrade_level = level
 
-func _def() -> Dictionary:
-	return CardDatabase.CARDS[card_id]
-
-func definition() -> Dictionary:
+func def() -> Dictionary:
 	return CardDatabase.CARDS[card_id]
 
 func max_upgrades() -> int:
@@ -23,7 +20,7 @@ func upgrade() -> void:
 		upgrade_level += 1
 	
 func get_stat(stat: String) -> int:
-	return definition().get(stat, 0) + CardUpgradeRule.bonus(self, stat)
+	return def().get(stat, 0) + CardUpgradeRule.bonus(self, stat)
 
 func display_name() -> String:
 	var base := card_id.capitalize()
