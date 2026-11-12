@@ -16,13 +16,13 @@ func _ready() -> void:
 	EventBus.enemy_is_dead.connect(_on_enemy_is_dead)
 	
 func setup(enemies: Array[String]) -> void:
-	for enemy_card_name: String in enemies:
+	for enemy_card_id: String in enemies:
 		var new_enemy_card: EnemyCard = load(Constants.ENEMY_CARD_SCENE_PATH).instantiate()
 		
 		card_manager_reference.add_child(new_enemy_card)
 		
-		new_enemy_card.setup(enemy_card_name, 
-							CardDatabase.ENEMY_CARDS[GameState.current_node.type][enemy_card_name], 
+		new_enemy_card.setup(enemy_card_id, 
+							CardDatabase.ENEMY_CARDS[GameState.current_node.type][enemy_card_id], 
 							Constants.CARD_SCALE_DEFAULT)
 		add_enemy_card(new_enemy_card)
 

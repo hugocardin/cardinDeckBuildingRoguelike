@@ -2,7 +2,7 @@ class_name Deck
 
 extends Node2D
 
-var player_deck: Array[String]
+var player_deck: Array[CardInstance]
 
 var card_count_reference: RichTextLabel
 
@@ -19,7 +19,7 @@ func _ready() -> void:
 	discard_reference = $"../Discard"
 	card_count_reference = $CardCount
 
-func setup(cards: Array[String]) -> void:
+func setup(cards: Array[CardInstance]) -> void:
 	player_deck = cards
 	_set_card_count_text()
 
@@ -35,7 +35,7 @@ func draw_card() -> void:
 	if player_deck.size() == 0:
 		return
 		
-	var card_name: String = player_deck[0]
+	var card_instance: CardInstance = player_deck[0]
 	player_deck.remove_at(0)
 	
 	_set_card_count_text()
@@ -44,7 +44,7 @@ func draw_card() -> void:
 	card_manager_reference.add_child(new_card)
 	new_card.global_position = Constants.DECK_POSITION
 	
-	new_card.setup(card_name, CardDatabase.CARDS[card_name], Constants.CARD_SCALE_DEFAULT)
+	new_card.setup(card_instance, Constants.CARD_SCALE_DEFAULT)
 	player_hand_reference.add_card_to_hand(new_card, Constants.DECK_DRAW_DURATION)
 
 func _set_card_count_text() -> void:

@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Discard
 
-var cards: Array[String]
+var cards: Array[CardInstance]
 
 var quantity_reference: RichTextLabel
 
@@ -13,12 +13,12 @@ func _ready() -> void:
 	
 	_set_card_count()
 
-func add_card(card: String) -> void:
+func add_card(card: CardInstance) -> void:
 	cards.append(card)
 	_set_card_count()
 
-func empty_discard() -> Array[String]:
-	var cards_in_discard: Array[String] = cards
+func empty_discard() -> Array[CardInstance]:
+	var cards_in_discard: Array[CardInstance] = cards
 	cards = []
 	_set_card_count()
 	
