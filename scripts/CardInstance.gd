@@ -33,7 +33,7 @@ func display_name() -> String:
 	return base if upgrade_level == 0 else base + "+" + ("" if upgrade_level == 1 else str(upgrade_level))
 
 func display_rarity() -> String:
-	var rarity: Constants.CardRarity = def()["rarity"]
+	var rarity: Constants.CardRarity = def().get("rarity", Constants.CardRarity.COMMON)
 	return Constants.CardRarity.find_key(rarity)
 	
 func copy() -> CardInstance:
