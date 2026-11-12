@@ -7,9 +7,9 @@ static func max_upgrades(card: CardInstance) -> int:
 	var result: int
 	match rule.get("type", ""):
 		"steps":
-			# The list length is the cap; max_upgrades can only lower it.
 			var size: int = rule.get("list", []).size()
-			result = mini(def.get("max_upgrades", size), size)
+			var m: int = def.get("max_upgrades", size)
+			result = size if m == Constants.CARD_INFINITE_UPGRADES else mini(m, size)
 		"escalating", "flat":
 			result = def.get("max_upgrades", 1)
 		_:
