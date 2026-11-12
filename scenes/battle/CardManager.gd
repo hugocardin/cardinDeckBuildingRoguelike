@@ -8,7 +8,6 @@ var pressed_item: Variant
 var press_position: Vector2
 var is_dragging: bool
 var screen_size: Vector2
-var is_hovering_on_card: bool
 
 var player_hand_reference: PlayerHand
 var discard_reference: Discard
@@ -28,9 +27,6 @@ func _ready() -> void:
 	deck_reference = $"../Deck"
 	player_reference = $"../Player"
 	battle_reference = $".."
-	
-	EventBus.card_hovered.connect(_on_hovered_card)
-	EventBus.card_hovered_off.connect(_on_hovered_off_card)
 	
 	EventBus.mouse_pressed.connect(_on_mouse_pressed)
 	EventBus.mouse_moved.connect(_on_mouse_moved)
@@ -74,7 +70,6 @@ func _on_mouse_released() -> void:
 func finish_drag() -> void:
 	if pressed_item is Card:
 		var enemy_card_found: EnemyCard = Collision.check_for_enemy_card()
-		is_hovering_on_card = false
 		
 		if battle_reference.is_player_turn() && player_reference.has_actions() and enemy_card_found:
 			pressed_item.scale = Constants.CARD_SCALE_BIG
@@ -91,27 +86,3 @@ func finish_drag() -> void:
 		else:
 			pressed_item.scale = Constants.CARD_SCALE_DEFAULT
 			player_hand_reference.add_card_to_hand(pressed_item)
-			
-
-func _on_hovered_card(card: Card) -> void:
-	if !is_hovering_on_card:
-		highlight_card(card, true)
-		is_hovering_on_card = true
-	
-func _on_hovered_off_card(card: Card) -> void:
-	if !is_dragging:
-		highlight_card(card, false)
-		
-		var new_hovered_card: Card = Collision.check_for_card()
-		if new_hovered_card:
-			highlight_card(new_hovered_card, true)
-		else:
-			is_hovering_on_card = false
-	
-func highlight_card(card: Card, is_hoverred: bool) -> void:
-	if is_hoverred:
-		card.scale = Constants.CARD_SCALE_BIG
-		card.z_index = 2
-	else:
-		card.scale = Constants.CARD_SCALE_DEFAULT
-		card.z_index = 1

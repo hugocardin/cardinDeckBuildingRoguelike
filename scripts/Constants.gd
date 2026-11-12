@@ -53,3 +53,22 @@ const MAP_BACKGROUNDS: Array[String] = [
 	"res://assets/backgrounds/sunny_beach.jpg",
 	"res://assets/backgrounds/underwater_reef.jpg"
 ]
+
+enum CardRarity { COMMON, UNCOMMON, RARE, LEGENDARY }
+
+const CARD_RARITY_WEIGHTS: Dictionary[LevelType, Dictionary] = {
+	LevelType.NORMAL_BATTLE: {
+		CardRarity.COMMON: 60, CardRarity.UNCOMMON: 25, CardRarity.RARE: 12, CardRarity.LEGENDARY: 3,
+	},
+	LevelType.ELITE_BATTLE: {
+		CardRarity.COMMON: 20, CardRarity.UNCOMMON: 40, CardRarity.RARE: 30, CardRarity.LEGENDARY: 10,
+	},
+	LevelType.WORLD_BOSS_BATTLE: {
+		CardRarity.LEGENDARY: 100,
+	},
+	LevelType.SHOP: {
+		CardRarity.COMMON: 60, CardRarity.UNCOMMON: 25, CardRarity.RARE: 12, CardRarity.LEGENDARY: 3
+	}
+}
+
+const CARD_UNLIMITED_COPIES := -1

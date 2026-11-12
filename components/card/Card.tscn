@@ -61,5 +61,14 @@ text = "Super Knight"
 fit_content = true
 autowrap_mode = 0
 
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[node name="Rarity" type="RichTextLabel" parent="." unique_id=374965623]
+offset_left = -392.00003
+offset_top = 354.0
+offset_right = -235.20004
+offset_bottom = 377.0
+scale = Vector2(5, 5)
+mouse_filter = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_42x1r")
+text = "Rarity"
+fit_content = true
+autowrap_mode = 0

@@ -5,11 +5,19 @@
 [node name="Shop" type="Node2D" unique_id=1390731555]
 script = ExtResource("1_rktij")
 
-[node name="Button" type="Button" parent="." unique_id=758894966]
-offset_left = 442.0
-offset_top = 622.0
-offset_right = 591.0
-offset_bottom = 653.0
-text = "Finished shopping"
+[node name="CardsToAdd" type="HBoxContainer" parent="." unique_id=156782896]
+offset_left = 76.0
+offset_top = 197.0
+offset_right = 1025.0
+offset_bottom = 586.0
+theme_override_constants/separation = 20
+alignment = 1
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="SkipChoose" type="Button" parent="." unique_id=950626144]
+offset_left = 455.0
+offset_top = 1149.0
+offset_right = 555.0
+offset_bottom = 1180.0
+text = "Skip choose"
+
+[connection signal="pressed" from="SkipChoose" to="." method="_on_skip_choose_pressed"]
