@@ -43,7 +43,7 @@ const CARDS: Dictionary[String, Dictionary] = {
 		"upgrade": { "type": "steps", "list": [{"attack": 4}, {"attack": 6, "shield": 2}] }
 	},
 	"golem": {
-		"rarity": Constants.CardRarity.RARE,
+		"rarity": Constants.CardRarity.COMMON,
 		"attack": 1,
 		"shield": 10,
 		"max_upgrades": Constants.CARD_INFINITE_UPGRADES,
@@ -127,7 +127,7 @@ static func draw_reward_id(pool: Array[String], source: Constants.LevelType) -> 
 
 	var by_rarity: Dictionary[Constants.CardRarity, Array] = {}
 	for card_id: String in pool:
-		var card_id_rarity: Constants.CardRarity = CARDS[card_id]["rarity"]
+		var card_id_rarity: Constants.CardRarity = CARDS[card_id].get("rarity", Constants.CardRarity.COMMON)
 		if weights.get(card_id_rarity, 0) <= 0:
 			continue
 		if not by_rarity.has(card_id_rarity):

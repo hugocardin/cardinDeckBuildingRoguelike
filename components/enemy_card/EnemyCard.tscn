@@ -10,7 +10,6 @@ size = Vector2(784, 1168)
 bg_color = Color(0, 0, 0, 1)
 
 [node name="EnemyCard" type="Node2D" unique_id=1686933852]
-z_index = -1
 script = ExtResource("1_no5o5")
 
 [node name="EnemyCardImage" type="Sprite2D" parent="." unique_id=546477463]
