@@ -4,9 +4,6 @@ signal mouse_moved
 signal mouse_pressed
 signal mouse_released
 
-signal card_hovered
-signal card_hovered_off
-
 signal left_mouse_button_pressed_on_card(card: Card)
 signal left_mouse_button_pressed_on_deck
 

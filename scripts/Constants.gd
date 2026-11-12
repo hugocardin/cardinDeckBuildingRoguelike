@@ -4,7 +4,6 @@ extends RefCounted
 const CARD_DEFAULT_MOVE_DURATION := 0.1
 const CARD_SCENE_PATH := "res://components/card/Card.tscn"
 const CARD_SCALE_DEFAULT := Vector2(0.3, 0.3)
-const CARD_SCALE_BIG := Vector2(0.33, 0.33)
 const CARD_NATIVE_SIZE := Vector2(768, 1168)
 const CARD_HEIGHT := CARD_NATIVE_SIZE[1] * CARD_SCALE_DEFAULT.y
 const CARD_WIDTH := CARD_NATIVE_SIZE[0] * CARD_SCALE_DEFAULT.x
@@ -53,3 +52,22 @@ const MAP_BACKGROUNDS: Array[String] = [
 	"res://assets/backgrounds/sunny_beach.jpg",
 	"res://assets/backgrounds/underwater_reef.jpg"
 ]
+
+enum CardRarity { COMMON, UNCOMMON, RARE, LEGENDARY }
+
+const CARD_RARITY_WEIGHTS: Dictionary[LevelType, Dictionary] = {
+	LevelType.NORMAL_BATTLE: {
+		CardRarity.COMMON: 60, CardRarity.UNCOMMON: 25, CardRarity.RARE: 12, CardRarity.LEGENDARY: 3,
+	},
+	LevelType.ELITE_BATTLE: {
+		CardRarity.COMMON: 20, CardRarity.UNCOMMON: 40, CardRarity.RARE: 30, CardRarity.LEGENDARY: 10,
+	},
+	LevelType.WORLD_BOSS_BATTLE: {
+		CardRarity.LEGENDARY: 100,
+	},
+	LevelType.SHOP: {
+		CardRarity.COMMON: 60, CardRarity.UNCOMMON: 25, CardRarity.RARE: 12, CardRarity.LEGENDARY: 3
+	}
+}
+
+const CARD_UNLIMITED_COPIES := -1

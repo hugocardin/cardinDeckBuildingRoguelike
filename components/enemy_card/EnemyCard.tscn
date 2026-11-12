@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yuttk"]
 size = Vector2(784, 1168)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_no5o5"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="EnemyCard" type="Node2D" unique_id=1686933852]
 script = ExtResource("1_no5o5")
 
@@ -40,3 +43,15 @@ offset_bottom = -559.0
 scale = Vector2(7, 7)
 text = "999"
 vertical_alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="." unique_id=1788442520]
+offset_left = -392.0
+offset_top = 469.00003
+offset_right = -235.20001
+offset_bottom = 492.00003
+scale = Vector2(5, 5)
+mouse_filter = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_no5o5")
+text = "Super Knight"
+fit_content = true
+autowrap_mode = 0

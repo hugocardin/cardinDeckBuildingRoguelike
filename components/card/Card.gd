@@ -3,7 +3,6 @@ class_name Card
 extends Node2D
 
 var starting_position: Vector2
-var attribut_name: String
 var attribut_attack: int
 var attribut_shield: int
 
@@ -13,6 +12,7 @@ var attack_text_reference: RichTextLabel
 var shield_text_reference: RichTextLabel
 var card_image_reference: Sprite2D
 var name_reference: RichTextLabel
+var rarity_reference: RichTextLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,13 +20,8 @@ func _ready() -> void:
 	shield_text_reference = $Shield
 	card_image_reference = $CardImage
 	name_reference = $Name
+	rarity_reference = $Rarity
 
-func _on_area_2d_mouse_entered() -> void:
-	EventBus.card_hovered.emit(self)
-
-func _on_area_2d_mouse_exited() -> void:
-	EventBus.card_hovered_off.emit(self)
-	
 func setup(card_instance: CardInstance, card_scale: Vector2 = Vector2.ONE) -> void:
 	instance = card_instance
 	scale = card_scale
@@ -40,10 +35,10 @@ func refresh() -> void:
 	if instance == null:
 		return
 		
-	attribut_attack = instance.get_stat("attack")
-	attribut_shield = instance.get_stat("shield")
-	attribut_name = instance.display_name()
+	attribut_attack = instance.get_attack()
+	attribut_shield = instance.get_shield()
 	
 	attack_text_reference.text = str(attribut_attack)
 	shield_text_reference.text = str(attribut_shield)
 	name_reference.text = instance.display_name()
+	rarity_reference.text = instance.display_rarity()

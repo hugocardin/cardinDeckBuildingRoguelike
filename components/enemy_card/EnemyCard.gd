@@ -8,11 +8,13 @@ var attribute_attack: int
 
 var health_reference: RichTextLabel
 var attack_reference: RichTextLabel
+var name_reference: RichTextLabel
 var enemy_card_image_reference: Sprite2D
 
 func _ready() -> void:
 	health_reference = $Health
 	attack_reference = $Attack
+	name_reference = $Name
 	enemy_card_image_reference = $EnemyCardImage
 
 func setup(card_id: String, attributes: Dictionary, card_scale: Vector2 = Vector2.ONE) -> void:
@@ -24,6 +26,7 @@ func setup(card_id: String, attributes: Dictionary, card_scale: Vector2 = Vector
 	
 	health_reference.text = str(attribute_health)
 	attack_reference.text = str(attribute_attack)
+	name_reference.text = card_id
 	
 	var image_path: String = "res://assets/enemy_cards/" + card_id + ".jpg"
 	enemy_card_image_reference.texture = load(image_path)
