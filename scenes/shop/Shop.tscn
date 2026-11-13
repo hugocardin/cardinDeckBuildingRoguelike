@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://lagyo1qjprmf"]
 
 [ext_resource type="Script" uid="uid://dplhh361af2vc" path="res://scenes/shop/Shop.gd" id="1_rktij"]
+[ext_resource type="Theme" uid="uid://caw1tcdukqnd7" path="res://themes/ui_theme.tres" id="2_3qebd"]
 
 [node name="Shop" type="Node2D" unique_id=1390731555]
 script = ExtResource("1_rktij")
@@ -18,6 +19,7 @@ offset_left = 455.0
 offset_top = 1149.0
 offset_right = 555.0
 offset_bottom = 1180.0
+theme = ExtResource("2_3qebd")
 text = "Skip choose"
 
 [connection signal="pressed" from="SkipChoose" to="." method="_on_skip_choose_pressed"]

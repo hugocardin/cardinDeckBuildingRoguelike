@@ -9,5 +9,5 @@ const CHARACTERS: Dictionary[String, Dictionary] = {
 	"sorcerer": {
 		"health": 35,
 		"starting_cards": ["demon", "demon", "archer", "archer", "archer", "berserker", "knight", "knight"]
-	}
+	},
 }

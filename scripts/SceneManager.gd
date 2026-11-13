@@ -20,10 +20,7 @@ func go_to_shop() -> void:
 	get_tree().change_scene_to_file("res://scenes/shop/Shop.tscn")
 	
 func go_to_battle_victory() -> void:
-	if GameState.current_node.type == Constants.LevelType.WORLD_BOSS_BATTLE:
-		go_to_home()
-	else:
-		get_tree().change_scene_to_file("res://scenes/battle_victory/BattleVictory.tscn")
+	get_tree().change_scene_to_file("res://scenes/battle_victory/BattleVictory.tscn")
 	
 func _on_character_selected(character_name: String) -> void:
 	GameState.reset()

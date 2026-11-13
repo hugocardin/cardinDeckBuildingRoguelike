@@ -30,7 +30,7 @@ const CARDS: Dictionary[String, Dictionary] = {
 		"upgrade": {"type": "escalating", "stat": "attack", "start": 1, "step": 1} 
 	},
 	"mage": {
-		"rarity": Constants.CardRarity.LEGENDARY,
+		"rarity": Constants.CardRarity.RARE,
 		"attack": 8,
 		"shield": 3,
 		"max_upgrades": 2,
@@ -48,6 +48,75 @@ const CARDS: Dictionary[String, Dictionary] = {
 		"shield": 10,
 		"max_upgrades": Constants.CARD_INFINITE_UPGRADES,
 		"upgrade": { "type": "escalating", "stat": "shield", "start": 2, "step": 1 }
+	},
+	"cleric": {
+		"rarity": Constants.CardRarity.COMMON,
+		"attack": 3,
+		"shield": 5,
+		"max_upgrades": 2,
+		"upgrade": { "type": "flat", "shield": 2 }
+	},
+	"monk": {
+		"rarity": Constants.CardRarity.COMMON,
+		"attack": 5,
+		"shield": 3,
+		"max_upgrades": 3,
+		"upgrade": { "type": "escalating", "stat": "attack", "start": 2, "step": 1 }
+	},
+	"pirate": {
+		"rarity": Constants.CardRarity.COMMON,
+		"attack": 6,
+		"shield": 2,
+		"upgrade": { "type": "steps", "list": [{"attack": 3}, {"attack": 2, "shield": 1}] }
+	},
+	"dwarf": {
+		"rarity": Constants.CardRarity.COMMON,
+		"attack": 4,
+		"shield": 5,
+		"max_upgrades": 2,
+		"upgrade": { "type": "flat", "shield": 2 }
+	},
+	"shaman": {
+		"rarity": Constants.CardRarity.UNCOMMON,
+		"attack": 6,
+		"shield": 4,
+		"upgrade": { "type": "steps", "list": [{"attack": 2, "shield": 1}, {"attack": 3, "shield": 1}] }
+	},
+	"frost_witch": {
+		"rarity": Constants.CardRarity.UNCOMMON,
+		"attack": 8,
+		"shield": 2,
+		"max_upgrades": 2,
+		"upgrade": { "type": "flat", "attack": 3 }
+	},
+	"dryad": {
+		"rarity": Constants.CardRarity.UNCOMMON,
+		"attack": 2,
+		"shield": 8,
+		"max_upgrades": 3,
+		"upgrade": { "type": "escalating", "stat": "shield", "start": 2, "step": 1 }
+	},
+	"necromancer": {
+		"rarity": Constants.CardRarity.RARE,
+		"max_copies": 1,
+		"attack": 9,
+		"shield": 4,
+		"upgrade": { "type": "steps", "list": [{"attack": 3, "shield": 1}, {"attack": 4, "shield": 2}] }
+	},
+	"minotaur": {
+		"rarity": Constants.CardRarity.RARE,
+		"attack": 10,
+		"shield": 5,
+		"max_upgrades": 2,
+		"upgrade": { "type": "flat", "attack": 3, "shield": 1 }
+	},
+	"phoenix": {
+		"rarity": Constants.CardRarity.RARE,
+		"max_copies": 1,
+		"attack": 12,
+		"shield": 8,
+		"max_upgrades": 2,
+		"upgrade": { "type": "flat", "attack": 3, "shield": 3 }
 	},
 }
 
