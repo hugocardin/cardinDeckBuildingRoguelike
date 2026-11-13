@@ -42,7 +42,7 @@ func draw_card() -> void:
 	var new_card: Card = preload(Constants.CARD_SCENE_PATH).instantiate()
 	
 	card_manager_reference.add_child(new_card)
-	new_card.global_position = Constants.DECK_POSITION
+	new_card.global_position = global_position
 	
 	new_card.setup(card_instance, Constants.CARD_SCALE_DEFAULT)
 	player_hand_reference.add_card_to_hand(new_card, Constants.DECK_DRAW_DURATION)

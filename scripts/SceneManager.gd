@@ -20,6 +20,8 @@ func go_to_shop() -> void:
 	get_tree().change_scene_to_file("res://scenes/shop/Shop.tscn")
 	
 func go_to_battle_victory() -> void:
+	GameState.set_enemies([])
+	
 	get_tree().change_scene_to_file("res://scenes/battle_victory/BattleVictory.tscn")
 	
 func _on_character_selected(character_name: String) -> void:
