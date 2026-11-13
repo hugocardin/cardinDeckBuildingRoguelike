@@ -1,5 +1,7 @@
 extends Node2D
 
+const UI_THEME: Theme = preload("res://themes/ui_theme.tres")
+
 var v_box_container_reference: VBoxContainer
 
 func _ready() -> void:
@@ -7,6 +9,7 @@ func _ready() -> void:
 
 	for character_name: String in CharacterDatabase.CHARACTERS:
 		var button: Button = Button.new()
+		button.theme = UI_THEME
 		button.text = character_name.capitalize()
 		button.pressed.connect(_on_character_selected.bind(character_name))
 		v_box_container_reference.add_child(button)

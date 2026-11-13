@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" uid="uid://hlmtnj38416p" path="res://components/enemy_card/EnemyCard.gd" id="1_no5o5"]
 [ext_resource type="Texture2D" uid="uid://b8p2pf3omfybk" path="res://assets/enemy_cards/orc.jpg" id="2_ke84f"]
+[ext_resource type="Theme" uid="uid://caw1tcdukqnd7" path="res://themes/ui_theme.tres" id="3_ke84f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yuttk"]
 size = Vector2(784, 1168)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryynl"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itnie"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_no5o5"]
 bg_color = Color(0, 0, 0, 1)
@@ -24,12 +31,15 @@ shape = SubResource("RectangleShape2D_yuttk")
 [node name="Attack" type="RichTextLabel" parent="." unique_id=1961168600]
 self_modulate = Color(1, 0, 0, 1)
 z_index = 1
-offset_left = 112.0
-offset_top = -584.00006
-offset_right = 152.0
-offset_bottom = -559.00006
-scale = Vector2(7, 7)
+offset_left = 220.0
+offset_top = -584.0
+offset_right = 392.0
+offset_bottom = -447.0
+theme = ExtResource("3_ke84f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ryynl")
 text = "999"
+fit_content = true
+autowrap_mode = 0
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -38,19 +48,22 @@ self_modulate = Color(0, 1, 0, 1)
 z_index = 1
 offset_left = -392.0
 offset_top = -584.0
-offset_right = -352.0
-offset_bottom = -559.0
-scale = Vector2(7, 7)
+offset_right = -220.0
+offset_bottom = -447.0
+theme = ExtResource("3_ke84f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_itnie")
 text = "999"
+fit_content = true
+autowrap_mode = 0
 vertical_alignment = 1
 
 [node name="Name" type="RichTextLabel" parent="." unique_id=1788442520]
 offset_left = -392.0
-offset_top = 469.00003
-offset_right = -235.20001
-offset_bottom = 492.00003
-scale = Vector2(5, 5)
+offset_top = 447.0
+offset_right = 392.0
+offset_bottom = 584.0
 mouse_filter = 2
+theme = ExtResource("3_ke84f")
 theme_override_styles/normal = SubResource("StyleBoxFlat_no5o5")
 text = "Super Knight"
 fit_content = true

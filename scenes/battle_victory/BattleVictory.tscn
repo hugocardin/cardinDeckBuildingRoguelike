@@ -1,23 +1,46 @@
 [gd_scene format=3 uid="uid://dnxpxxivvpgyn"]
 
 [ext_resource type="Script" uid="uid://u3as4amch0nb" path="res://scenes/battle_victory/BattleVictory.gd" id="1_dp31f"]
+[ext_resource type="Theme" uid="uid://caw1tcdukqnd7" path="res://themes/ui_theme.tres" id="2_d1arm"]
 
 [node name="BattleVictoryRoot" type="Node2D" unique_id=1506620259]
 script = ExtResource("1_dp31f")
 
+[node name="VictoryText" type="RichTextLabel" parent="." unique_id=1541266728]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 290.0
+offset_right = 790.0
+offset_bottom = 150.0
+grow_horizontal = 2
+theme = ExtResource("2_d1arm")
+text = "Victory!"
+horizontal_alignment = 1
+
 [node name="NextBattleButton" type="Button" parent="." unique_id=68791517]
-offset_left = 577.0
-offset_top = 426.0
-offset_right = 673.0
-offset_bottom = 457.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 390.0
+offset_top = 500.0
+offset_right = 690.0
+offset_bottom = 575.0
+grow_horizontal = 2
+theme = ExtResource("2_d1arm")
 text = "Next Battle"
 
-[node name="VictoryText" type="RichTextLabel" parent="." unique_id=1541266728]
-offset_left = 545.0
-offset_top = 325.0
-offset_right = 659.0
-offset_bottom = 348.0
-scale = Vector2(3, 3)
-text = "Victory!"
+[node name="AfterBossGoHome" type="Button" parent="." unique_id=936514289]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 390.0
+offset_top = 707.0
+offset_right = 690.0
+offset_bottom = 782.0
+grow_horizontal = 2
+theme = ExtResource("2_d1arm")
+text = "Go Home"
 
 [connection signal="pressed" from="NextBattleButton" to="." method="_on_next_battle_button_pressed"]
+[connection signal="pressed" from="AfterBossGoHome" to="." method="_on_after_boss_go_home_pressed"]

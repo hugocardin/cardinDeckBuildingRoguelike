@@ -40,6 +40,10 @@ func reset() -> void:
 	maximum_action = 3
 	all_player_cards = []
 	current_enemies = []
-	current_map_nodes= []
+	
+	reset_for_new_world()
+
+func reset_for_new_world() -> void:
+	current_map_nodes = []
 	current_node = null
 	map_background_index = 0

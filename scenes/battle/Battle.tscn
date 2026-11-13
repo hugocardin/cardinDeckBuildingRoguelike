@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ctat3s5tf7hbr" path="res://components/deck/Deck.tscn" id="6_hl5pk"]
 [ext_resource type="PackedScene" uid="uid://bs0wkulxtx64a" path="res://components/discard/Discard.tscn" id="7_jjack"]
 [ext_resource type="Script" uid="uid://bi48mx8qerqpu" path="res://scripts/InputManager.gd" id="8_nygig"]
+[ext_resource type="Theme" uid="uid://caw1tcdukqnd7" path="res://themes/ui_theme.tres" id="9_2ckr4"]
 
 [node name="Battle" type="Node2D" unique_id=1225489236]
 script = ExtResource("1_2ckr4")
@@ -22,24 +23,25 @@ script = ExtResource("3_kos6x")
 script = ExtResource("1_kos6x")
 
 [node name="Player" parent="." unique_id=1279587413 instance=ExtResource("4_nygig")]
-position = Vector2(540, 721)
+position = Vector2(540, 1031)
 
 [node name="PlayerHand" type="Node2D" parent="." unique_id=54393005]
 script = ExtResource("3_22lvc")
 
 [node name="Deck" parent="." unique_id=631521557 instance=ExtResource("6_hl5pk")]
-position = Vector2(150, 700)
+position = Vector2(150, 600)
 scale = Vector2(0.3, 0.3)
 
 [node name="Discard" parent="." unique_id=1637224165 instance=ExtResource("7_jjack")]
-position = Vector2(930, 700)
+position = Vector2(930, 600)
 scale = Vector2(0.3, 0.3)
 
 [node name="EndTurnButton" type="Button" parent="." unique_id=457592452]
-offset_left = 480.0
-offset_top = 589.0
-offset_right = 600.0
-offset_bottom = 620.0
+offset_left = 415.0
+offset_top = 1345.0
+offset_right = 665.0
+offset_bottom = 1420.0
+theme = ExtResource("9_2ckr4")
 text = "End Turn"
 
 [node name="BattleTimer" type="Timer" parent="." unique_id=443405477]
