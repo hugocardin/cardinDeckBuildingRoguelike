@@ -22,6 +22,9 @@ func upgrade() -> void:
 func get_stat(stat: String) -> int:
 	return def().get(stat, 0) + CardUpgradeRule.bonus(self, stat)
 
+func get_rarety() -> Constants.CardRarity:
+	return def().get("rarity", Constants.CardRarity.EMERALD)
+	
 func get_attack() -> int:
 	return get_stat("attack")
 	
@@ -32,9 +35,5 @@ func display_name() -> String:
 	var base := card_id.capitalize()
 	return base if upgrade_level == 0 else base + "+" + ("" if upgrade_level == 1 else str(upgrade_level))
 
-func display_rarity() -> String:
-	var rarity: Constants.CardRarity = def().get("rarity", Constants.CardRarity.COMMON)
-	return Constants.CardRarity.find_key(rarity)
-	
 func copy() -> CardInstance:
 	return CardInstance.new(card_id, upgrade_level)

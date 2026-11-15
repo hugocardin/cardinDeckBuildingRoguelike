@@ -3,120 +3,155 @@ extends RefCounted
 
 const CARDS: Dictionary[String, Dictionary] = {
 	"knight": {
-		"rarity": Constants.CardRarity.COMMON,
+		"rarity": Constants.CardRarity.EMERALD,
 		"attack": 2,
 		"shield": 6,
 		"max_upgrades": 1,
 		"upgrade": { "type": "flat", "shield": 3 }
 	},
 	"archer": {
-		"rarity": Constants.CardRarity.COMMON,
+		"rarity": Constants.CardRarity.EMERALD,
 		"attack": 7,
 		"shield": 1,
 		"max_upgrades": 1,
 		"upgrade": { "type": "flat", "attack": 3 }
 	},
 	"demon": {
-		"rarity": Constants.CardRarity.COMMON,
+		"rarity": Constants.CardRarity.EMERALD,
 		"attack": 9,
 		"shield": 9,
 		"upgrade": { "type": "steps", "list": [{"attack": 10}, {"shield": 10}, {"attack": 10, "shield": 10}] }
 	},
 	"berserker": { 
-		"rarity": Constants.CardRarity.UNCOMMON,
+		"rarity": Constants.CardRarity.RUBY,
 		"attack": 11, 
 		"shield": 0,
 		"max_upgrades": Constants.CARD_INFINITE_UPGRADES,
 		"upgrade": {"type": "escalating", "stat": "attack", "start": 1, "step": 1} 
 	},
 	"mage": {
-		"rarity": Constants.CardRarity.RARE,
+		"rarity": Constants.CardRarity.DIAMOND,
 		"attack": 8,
 		"shield": 3,
 		"max_upgrades": 2,
 		"upgrade": { "type": "flat", "attack": 3 }
 	},
 	"assassin": {
-		"rarity": Constants.CardRarity.RARE,
+		"rarity": Constants.CardRarity.DIAMOND,
 		"attack": 10,
 		"shield": 0,
 		"upgrade": { "type": "steps", "list": [{"attack": 4}, {"attack": 6, "shield": 2}] }
 	},
 	"golem": {
-		"rarity": Constants.CardRarity.COMMON,
+		"rarity": Constants.CardRarity.EMERALD,
 		"attack": 1,
 		"shield": 10,
 		"max_upgrades": Constants.CARD_INFINITE_UPGRADES,
 		"upgrade": { "type": "escalating", "stat": "shield", "start": 2, "step": 1 }
 	},
 	"cleric": {
-		"rarity": Constants.CardRarity.COMMON,
+		"rarity": Constants.CardRarity.EMERALD,
 		"attack": 3,
 		"shield": 5,
 		"max_upgrades": 2,
 		"upgrade": { "type": "flat", "shield": 2 }
 	},
 	"monk": {
-		"rarity": Constants.CardRarity.COMMON,
+		"rarity": Constants.CardRarity.EMERALD,
 		"attack": 5,
 		"shield": 3,
 		"max_upgrades": 3,
 		"upgrade": { "type": "escalating", "stat": "attack", "start": 2, "step": 1 }
 	},
 	"pirate": {
-		"rarity": Constants.CardRarity.COMMON,
+		"rarity": Constants.CardRarity.EMERALD,
 		"attack": 6,
 		"shield": 2,
 		"upgrade": { "type": "steps", "list": [{"attack": 3}, {"attack": 2, "shield": 1}] }
 	},
 	"dwarf": {
-		"rarity": Constants.CardRarity.COMMON,
+		"rarity": Constants.CardRarity.EMERALD,
 		"attack": 4,
 		"shield": 5,
 		"max_upgrades": 2,
 		"upgrade": { "type": "flat", "shield": 2 }
 	},
 	"shaman": {
-		"rarity": Constants.CardRarity.UNCOMMON,
+		"rarity": Constants.CardRarity.RUBY,
 		"attack": 6,
 		"shield": 4,
 		"upgrade": { "type": "steps", "list": [{"attack": 2, "shield": 1}, {"attack": 3, "shield": 1}] }
 	},
 	"frost_witch": {
-		"rarity": Constants.CardRarity.UNCOMMON,
+		"rarity": Constants.CardRarity.RUBY,
 		"attack": 8,
 		"shield": 2,
 		"max_upgrades": 2,
 		"upgrade": { "type": "flat", "attack": 3 }
 	},
 	"dryad": {
-		"rarity": Constants.CardRarity.UNCOMMON,
+		"rarity": Constants.CardRarity.RUBY,
 		"attack": 2,
 		"shield": 8,
 		"max_upgrades": 3,
 		"upgrade": { "type": "escalating", "stat": "shield", "start": 2, "step": 1 }
 	},
 	"necromancer": {
-		"rarity": Constants.CardRarity.RARE,
+		"rarity": Constants.CardRarity.DIAMOND,
 		"max_copies": 1,
 		"attack": 9,
 		"shield": 4,
 		"upgrade": { "type": "steps", "list": [{"attack": 3, "shield": 1}, {"attack": 4, "shield": 2}] }
 	},
 	"minotaur": {
-		"rarity": Constants.CardRarity.RARE,
+		"rarity": Constants.CardRarity.DIAMOND,
 		"attack": 10,
 		"shield": 5,
 		"max_upgrades": 2,
 		"upgrade": { "type": "flat", "attack": 3, "shield": 1 }
 	},
 	"phoenix": {
-		"rarity": Constants.CardRarity.RARE,
+		"rarity": Constants.CardRarity.DIAMOND,
 		"max_copies": 1,
 		"attack": 12,
 		"shield": 8,
 		"max_upgrades": 2,
 		"upgrade": { "type": "flat", "attack": 3, "shield": 3 }
+	},
+	"serpenta": {
+		"rarity": Constants.CardRarity.EMERALD,
+		"attack": 10,
+		"shield": 5,
+		"max_upgrades": 2,
+		"upgrade": { "type": "flat", "attack": 3, "shield": 1 }
+	},
+	"archeron": {
+		"rarity": Constants.CardRarity.RUBY,
+		"attack": 10,
+		"shield": 5,
+		"max_upgrades": 2,
+		"upgrade": { "type": "flat", "attack": 3, "shield": 1 }
+	},
+	"pitido_le_t": {
+		"rarity": Constants.CardRarity.RUBY,
+		"attack": 10,
+		"shield": 5,
+		"max_upgrades": 2,
+		"upgrade": { "type": "flat", "attack": 3, "shield": 1 }
+	},
+	"tharche": {
+		"rarity": Constants.CardRarity.EMERALD,
+		"attack": 10,
+		"shield": 5,
+		"max_upgrades": 2,
+		"upgrade": { "type": "flat", "attack": 3, "shield": 1 }
+	},
+	"titigra": {
+		"rarity": Constants.CardRarity.DIAMOND,
+		"attack": 10,
+		"shield": 5,
+		"max_upgrades": 2,
+		"upgrade": { "type": "flat", "attack": 3, "shield": 1 }
 	},
 }
 
@@ -196,7 +231,7 @@ static func draw_reward_id(pool: Array[String], source: Constants.LevelType) -> 
 
 	var by_rarity: Dictionary[Constants.CardRarity, Array] = {}
 	for card_id: String in pool:
-		var card_id_rarity: Constants.CardRarity = CARDS[card_id].get("rarity", Constants.CardRarity.COMMON)
+		var card_id_rarity: Constants.CardRarity = CARDS[card_id].get("rarity", Constants.CardRarity.EMERALD)
 		if weights.get(card_id_rarity, 0) <= 0:
 			continue
 		if not by_rarity.has(card_id_rarity):
