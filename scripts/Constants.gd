@@ -52,6 +52,22 @@ const MAP_BACKGROUNDS: Array[String] = [
 
 enum CardRarity {EMERALD, RUBY, DIAMOND}
 
+const CARD_FRAMES: Dictionary[CardRarity, Texture2D] = {
+	CardRarity.EMERALD: preload("res://assets/cards/card_emerald.jpg"),
+	CardRarity.RUBY: preload("res://assets/cards/card_ruby.jpg"),
+	CardRarity.DIAMOND: preload("res://assets/cards/card_diamond.jpg"),
+}
+
+const CARD_GEMS: Dictionary[CardRarity, Texture2D] = {
+	CardRarity.EMERALD: preload("res://assets/cards/emerald.png"),
+	CardRarity.RUBY: preload("res://assets/cards/ruby.png"),
+	CardRarity.DIAMOND: preload("res://assets/cards/diamond.png"),
+}
+
+const PORTRAIT_DIR: String = "res://assets/player_cards/"
+
+const MISSING_PORTRAIT: Texture2D = preload("res://assets/cards/missing_portrait.png")
+
 const CARD_RARITY_WEIGHTS: Dictionary[LevelType, Dictionary] = {
 	LevelType.NORMAL_BATTLE: {
 		CardRarity.EMERALD: 65, CardRarity.RUBY: 25, CardRarity.DIAMOND: 10,

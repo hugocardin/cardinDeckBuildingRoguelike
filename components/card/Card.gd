@@ -27,28 +27,16 @@ func _ready() -> void:
 func setup(card_instance: CardInstance, card_scale: Vector2 = Vector2.ONE) -> void:
 	instance = card_instance
 	scale = card_scale
+	var rarity: Constants.CardRarity = instance.get_rarity()
 	
-	var rarety_name: String = ""
-	var card_rarety: Constants.CardRarity = instance.get_rarety()
-	
-	if card_rarety == Constants.CardRarity.EMERALD:
-		rarety_name = "emerald"
-	elif card_rarety == Constants.CardRarity.RUBY:
-		rarety_name = "ruby"
-	elif card_rarety == Constants.CardRarity.DIAMOND:
-		rarety_name = "diamond"
-	
-	var card_image_path: String = "res://assets/cards/card_" + rarety_name + ".jpg"
-	card_image_reference.texture = load(card_image_path)
+	card_image_reference.texture = Constants.CARD_FRAMES[rarity]
 	
 	# Note : the cards which had been generated because today are hidding the frame because it takes 
 	# the whole space, fine for now, in the future they will all get removed and the new one fit 
 	# correctly as been png with transparent background.
-	var character_image_path: String = "res://assets/player_cards/" + instance.card_id + ".png"
-	character_image_reference.texture = load(character_image_path)
+	character_image_reference.texture = CardDatabase.get_portrait(instance.card_id)
 	
-	var gem_image_path: String = "res://assets/cards/" + rarety_name + ".png"
-	gem_image_reference.texture = load(gem_image_path)
+	gem_image_reference.texture = Constants.CARD_GEMS[rarity]
 	
 	refresh()
 	

@@ -23,7 +23,7 @@ position = Vector2(2.2649765e-05, 1.5258789e-05)
 texture = ExtResource("3_ak506")
 
 [node name="GemImage" type="Sprite2D" parent="." unique_id=125283403]
-position = Vector2(332, -532)
+position = Vector2(326, -534)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("4_o72a7")
 
@@ -79,4 +79,4 @@ theme = ExtResource("3_khtmt")
 theme_type_variation = &"PlayerCardNameLabel"
 text = "Tj Tj Tj Tj Tj Tj Tj "
 fit_content = true
-autowrap_mode = 0
+autowrap_mode = 2

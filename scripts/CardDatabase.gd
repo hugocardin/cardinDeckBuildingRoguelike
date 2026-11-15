@@ -118,6 +118,7 @@ const CARDS: Dictionary[String, Dictionary] = {
 		"max_upgrades": 2,
 		"upgrade": { "type": "flat", "attack": 3, "shield": 3 }
 	},
+	# TODO: balance
 	"serpenta": {
 		"rarity": Constants.CardRarity.EMERALD,
 		"attack": 10,
@@ -125,6 +126,7 @@ const CARDS: Dictionary[String, Dictionary] = {
 		"max_upgrades": 2,
 		"upgrade": { "type": "flat", "attack": 3, "shield": 1 }
 	},
+	# TODO: balance
 	"archeron": {
 		"rarity": Constants.CardRarity.RUBY,
 		"attack": 10,
@@ -132,6 +134,7 @@ const CARDS: Dictionary[String, Dictionary] = {
 		"max_upgrades": 2,
 		"upgrade": { "type": "flat", "attack": 3, "shield": 1 }
 	},
+	# TODO: balance
 	"pitido_le_t": {
 		"rarity": Constants.CardRarity.RUBY,
 		"attack": 10,
@@ -139,6 +142,7 @@ const CARDS: Dictionary[String, Dictionary] = {
 		"max_upgrades": 2,
 		"upgrade": { "type": "flat", "attack": 3, "shield": 1 }
 	},
+	# TODO: balance
 	"tharche": {
 		"rarity": Constants.CardRarity.EMERALD,
 		"attack": 10,
@@ -146,6 +150,7 @@ const CARDS: Dictionary[String, Dictionary] = {
 		"max_upgrades": 2,
 		"upgrade": { "type": "flat", "attack": 3, "shield": 1 }
 	},
+	# TODO: balance
 	"titigra": {
 		"rarity": Constants.CardRarity.DIAMOND,
 		"attack": 10,
@@ -203,6 +208,25 @@ const ENEMY_CARDS: Dictionary[Constants.LevelType, Dictionary] = {
 		}
 	}
 }
+
+static func _get_portrait_path(card_id: String) -> String:
+	return Constants.PORTRAIT_DIR + card_id + ".png"
+
+## Returns the card's portrait, or a visible placeholder if the file is missing.
+static func get_portrait(card_id: String) -> Texture2D:
+	var path: String = _get_portrait_path(card_id)
+	if ResourceLoader.exists(path):
+		return load(path)
+	push_error("Missing portrait for card '%s': %s" % [card_id, path])
+	return Constants.MISSING_PORTRAIT
+
+## Checks every card at once. Stops the game in debug builds if any card has no portrait.
+static func validate_portraits() -> void:
+	var missing: Array[String] = []
+	for card_id: String in CARDS.keys():
+		if not ResourceLoader.exists(_get_portrait_path(card_id)):
+			missing.append(card_id)
+	assert(missing.is_empty(), "Cards missing portraits: %s" % ", ".join(missing))
 
 static func reward_pool_ids() -> Array[String]:
 	var starters: Dictionary[String, bool] = {}

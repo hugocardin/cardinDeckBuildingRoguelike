@@ -22,7 +22,7 @@ func upgrade() -> void:
 func get_stat(stat: String) -> int:
 	return def().get(stat, 0) + CardUpgradeRule.bonus(self, stat)
 
-func get_rarety() -> Constants.CardRarity:
+func get_rarity() -> Constants.CardRarity:
 	return def().get("rarity", Constants.CardRarity.EMERALD)
 	
 func get_attack() -> int:
