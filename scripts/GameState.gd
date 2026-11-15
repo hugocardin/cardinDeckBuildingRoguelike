@@ -11,6 +11,9 @@ var map_background_index: int
 var current_node: MapNode
 
 func _ready() -> void:
+	if OS.is_debug_build():
+		CardDatabase.validate_portraits()
+	
 	reset()
 
 func set_character(character_name: String) -> void:

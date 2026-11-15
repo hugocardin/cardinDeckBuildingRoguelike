@@ -50,20 +50,36 @@ const MAP_BACKGROUNDS: Array[String] = [
 	"res://assets/backgrounds/underwater_reef.jpg"
 ]
 
-enum CardRarity {COMMON, UNCOMMON, RARE}
+enum CardRarity {EMERALD, RUBY, DIAMOND}
+
+const CARD_FRAMES: Dictionary[CardRarity, Texture2D] = {
+	CardRarity.EMERALD: preload("res://assets/cards/card_emerald.jpg"),
+	CardRarity.RUBY: preload("res://assets/cards/card_ruby.jpg"),
+	CardRarity.DIAMOND: preload("res://assets/cards/card_diamond.jpg"),
+}
+
+const CARD_GEMS: Dictionary[CardRarity, Texture2D] = {
+	CardRarity.EMERALD: preload("res://assets/cards/emerald.png"),
+	CardRarity.RUBY: preload("res://assets/cards/ruby.png"),
+	CardRarity.DIAMOND: preload("res://assets/cards/diamond.png"),
+}
+
+const PORTRAIT_DIR: String = "res://assets/player_cards/"
+
+const MISSING_PORTRAIT: Texture2D = preload("res://assets/cards/missing_portrait.png")
 
 const CARD_RARITY_WEIGHTS: Dictionary[LevelType, Dictionary] = {
 	LevelType.NORMAL_BATTLE: {
-		CardRarity.COMMON: 65, CardRarity.UNCOMMON: 25, CardRarity.RARE: 10,
+		CardRarity.EMERALD: 65, CardRarity.RUBY: 25, CardRarity.DIAMOND: 10,
 	},
 	LevelType.ELITE_BATTLE: {
-		CardRarity.COMMON: 25, CardRarity.UNCOMMON: 45, CardRarity.RARE: 30,
+		CardRarity.EMERALD: 25, CardRarity.RUBY: 45, CardRarity.DIAMOND: 30,
 	},
 	LevelType.WORLD_BOSS_BATTLE: {
-		CardRarity.RARE: 100,
+		CardRarity.DIAMOND: 100,
 	},
 	LevelType.SHOP: {
-		CardRarity.COMMON: 65, CardRarity.UNCOMMON: 25, CardRarity.RARE: 10,
+		CardRarity.EMERALD: 65, CardRarity.RUBY: 25, CardRarity.DIAMOND: 10,
 	},
 }
 
