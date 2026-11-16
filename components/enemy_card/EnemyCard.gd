@@ -8,7 +8,7 @@ var attribute_attack: int
 
 var health_reference: RichTextLabel
 var attack_reference: RichTextLabel
-var name_reference: RichTextLabel
+var name_reference: FitRichTextLabel
 var enemy_card_image_reference: Sprite2D
 var enemy_character_image_reference: Sprite2D
 
@@ -28,9 +28,8 @@ func setup(card_id: String, attributes: Dictionary, card_scale: Vector2 = Vector
 	
 	health_reference.text = str(attribute_health)
 	attack_reference.text = str(attribute_attack)
-	name_reference.text = card_id.capitalize()
+	name_reference.set_fitted_text(card_id.capitalize())
 	
-	enemy_card_image_reference.texture = Constants.ENEMY_CARD_TEMPLATE
 	enemy_character_image_reference.texture = CardDatabase.get_enemy_card_portrait(card_id)
 	
 func get_width() -> float:

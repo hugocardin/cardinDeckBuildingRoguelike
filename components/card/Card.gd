@@ -49,4 +49,4 @@ func refresh() -> void:
 	
 	attack_text_reference.text = str(attribut_attack)
 	shield_text_reference.text = str(attribut_shield)
-	name_reference.text = instance.display_name()
+	name_reference.set_fitted_text(instance.display_name())

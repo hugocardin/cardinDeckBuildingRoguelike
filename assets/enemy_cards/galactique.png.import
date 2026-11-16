@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw2ehngoxir4b"
-path="res://.godot/imported/galatique.png-13b04a38d7400a6e8bd7f0738f6e0517.ctex"
+uid="uid://cpowdtvwfn4ri"
+path="res://.godot/imported/galactique.png-050e7d0c9db5301443595bb55b132cbe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_cards/galatique.png"
-dest_files=["res://.godot/imported/galatique.png-13b04a38d7400a6e8bd7f0738f6e0517.ctex"]
+source_file="res://assets/enemy_cards/galactique.png"
+dest_files=["res://.godot/imported/galactique.png-050e7d0c9db5301443595bb55b132cbe.ctex"]
 
 [params]
 

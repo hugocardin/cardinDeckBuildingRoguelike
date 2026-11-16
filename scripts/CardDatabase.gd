@@ -205,7 +205,7 @@ const ENEMY_CARDS: Dictionary[Constants.LevelType, Dictionary] = {
 			"health": 30
 		},
 		# TODO: balance
-		"galatique": {
+		"galactique": {
 			"attack": 10,
 			"health": 50,
 		},
@@ -222,40 +222,33 @@ const ENEMY_CARDS: Dictionary[Constants.LevelType, Dictionary] = {
 	}
 }
 
-static func _get_player_card_portrait_path(card_id: String) -> String:
-	return Constants.PLAYER_CARD_PORTRAIT_DIR + card_id + ".png"
-
-static func _get_enemy_card_portrait_path(card_id: String) -> String:
-	return Constants.ENEMY_CARD_PORTRAIT_DIR + card_id + ".png"
+static func _load_portrait(dir: String, card_id: String) -> Texture2D:
+	var path: String = dir + card_id + ".png"
+	if ResourceLoader.exists(path):
+		return load(path)
+	push_error("Missing portrait for '%s': %s" % [card_id, path])
+	return Constants.MISSING_PORTRAIT
 
 ## Returns the card's portrait, or a visible placeholder if the file is missing.
 static func get_player_card_portrait(card_id: String) -> Texture2D:
-	var path: String = _get_player_card_portrait_path(card_id)
-	if ResourceLoader.exists(path):
-		return load(path)
-	push_error("Missing portrait for card '%s': %s" % [card_id, path])
-	return Constants.MISSING_PORTRAIT
+	return _load_portrait(Constants.PLAYER_CARD_PORTRAIT_DIR, card_id)
 
 ## Returns the card's portrait, or a visible placeholder if the file is missing.
 static func get_enemy_card_portrait(card_id: String) -> Texture2D:
-	var path: String = _get_enemy_card_portrait_path(card_id)
-	if ResourceLoader.exists(path):
-		return load(path)
-	push_error("Missing portrait for card '%s': %s" % [card_id, path])
-	return Constants.MISSING_PORTRAIT
-	
+	return _load_portrait(Constants.ENEMY_CARD_PORTRAIT_DIR, card_id)
+
 ## Checks every card at once. Stops the game in debug builds if any card has no portrait.
 static func validate_portraits() -> void:
 	var missing: Array[String] = []
 	
 	for card_id: String in CARDS.keys():
-		if not ResourceLoader.exists(_get_player_card_portrait_path(card_id)):
-			missing.append(card_id)
+		if not get_enemy_card_portrait(card_id):
+			missing.append("player card:" + card_id)
 	
 	for level_type: Constants.LevelType in ENEMY_CARDS.keys():
-		for card_id: String  in ENEMY_CARDS[level_type].keys():
-			if not ResourceLoader.exists(_get_enemy_card_portrait_path(card_id)):
-				missing.append(card_id)
+		for card_id: String in ENEMY_CARDS[level_type].keys():
+			if not get_player_card_portrait(card_id):
+				missing.append("enemy: " + card_id)
 	
 	assert(missing.is_empty(), "Cards missing portraits: %s" % ", ".join(missing))
 
