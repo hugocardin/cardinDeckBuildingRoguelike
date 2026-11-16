@@ -158,6 +158,14 @@ const CARDS: Dictionary[String, Dictionary] = {
 		"max_upgrades": 2,
 		"upgrade": { "type": "flat", "attack": 3, "shield": 1 }
 	},
+	# TODO: balance
+	"miabuela_la_chatte": {
+		"rarity": Constants.CardRarity.DIAMOND,
+		"attack": 10,
+		"shield": 5,
+		"max_upgrades": 2,
+		"upgrade": { "type": "flat", "attack": 3, "shield": 1 }
+	},
 }
 
 const ENEMY_CARDS: Dictionary[Constants.LevelType, Dictionary] = {
@@ -181,7 +189,7 @@ const ENEMY_CARDS: Dictionary[Constants.LevelType, Dictionary] = {
 		"wolf": {
 			"attack": 10,
 			"health": 13
-		}
+		},
 	},
 	Constants.LevelType.ELITE_BATTLE : {
 		"armored_orc": {
@@ -195,7 +203,12 @@ const ENEMY_CARDS: Dictionary[Constants.LevelType, Dictionary] = {
 		"corrupted_druid": {
 			"attack": 13,
 			"health": 30
-		}
+		},
+		# TODO: balance
+		"galatique": {
+			"attack": 10,
+			"health": 50,
+		},
 	},
 	Constants.LevelType.WORLD_BOSS_BATTLE: {
 		"dragon": {
@@ -205,27 +218,45 @@ const ENEMY_CARDS: Dictionary[Constants.LevelType, Dictionary] = {
 		"lich_king": {
 			"attack": 20,
 			"health": 110
-		}
+		},
 	}
 }
 
-static func _get_portrait_path(card_id: String) -> String:
-	return Constants.PORTRAIT_DIR + card_id + ".png"
+static func _get_player_card_portrait_path(card_id: String) -> String:
+	return Constants.PLAYER_CARD_PORTRAIT_DIR + card_id + ".png"
+
+static func _get_enemy_card_portrait_path(card_id: String) -> String:
+	return Constants.ENEMY_CARD_PORTRAIT_DIR + card_id + ".png"
 
 ## Returns the card's portrait, or a visible placeholder if the file is missing.
-static func get_portrait(card_id: String) -> Texture2D:
-	var path: String = _get_portrait_path(card_id)
+static func get_player_card_portrait(card_id: String) -> Texture2D:
+	var path: String = _get_player_card_portrait_path(card_id)
 	if ResourceLoader.exists(path):
 		return load(path)
 	push_error("Missing portrait for card '%s': %s" % [card_id, path])
 	return Constants.MISSING_PORTRAIT
 
+## Returns the card's portrait, or a visible placeholder if the file is missing.
+static func get_enemy_card_portrait(card_id: String) -> Texture2D:
+	var path: String = _get_enemy_card_portrait_path(card_id)
+	if ResourceLoader.exists(path):
+		return load(path)
+	push_error("Missing portrait for card '%s': %s" % [card_id, path])
+	return Constants.MISSING_PORTRAIT
+	
 ## Checks every card at once. Stops the game in debug builds if any card has no portrait.
 static func validate_portraits() -> void:
 	var missing: Array[String] = []
+	
 	for card_id: String in CARDS.keys():
-		if not ResourceLoader.exists(_get_portrait_path(card_id)):
+		if not ResourceLoader.exists(_get_player_card_portrait_path(card_id)):
 			missing.append(card_id)
+	
+	for level_type: Constants.LevelType in ENEMY_CARDS.keys():
+		for card_id: String  in ENEMY_CARDS[level_type].keys():
+			if not ResourceLoader.exists(_get_enemy_card_portrait_path(card_id)):
+				missing.append(card_id)
+	
 	assert(missing.is_empty(), "Cards missing portraits: %s" % ", ".join(missing))
 
 static func reward_pool_ids() -> Array[String]:

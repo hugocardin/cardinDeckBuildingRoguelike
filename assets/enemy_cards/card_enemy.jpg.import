@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://codhjv0rmaqm2"
-path="res://.godot/imported/dragon.jpg-83fb0d45026692a366ba127773bfafbb.ctex"
+uid="uid://bm8v262nx1h65"
+path="res://.godot/imported/card_enemy.jpg-fb6592feb11a29861d03029398ecf951.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_cards/dragon.jpg"
-dest_files=["res://.godot/imported/dragon.jpg-83fb0d45026692a366ba127773bfafbb.ctex"]
+source_file="res://assets/enemy_cards/card_enemy.jpg"
+dest_files=["res://.godot/imported/card_enemy.jpg-fb6592feb11a29861d03029398ecf951.ctex"]
 
 [params]
 

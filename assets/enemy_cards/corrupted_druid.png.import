@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvjj7425tywg0"
-path="res://.godot/imported/gobelin.jpg-7612ac6ded4b42df838b4ad0d7256d8b.ctex"
+uid="uid://bengo0c54xfve"
+path="res://.godot/imported/corrupted_druid.png-988e065fbde667d546cb7f5bf65d0b46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_cards/gobelin.jpg"
-dest_files=["res://.godot/imported/gobelin.jpg-7612ac6ded4b42df838b4ad0d7256d8b.ctex"]
+source_file="res://assets/enemy_cards/corrupted_druid.png"
+dest_files=["res://.godot/imported/corrupted_druid.png-988e065fbde667d546cb7f5bf65d0b46.ctex"]
 
 [params]
 

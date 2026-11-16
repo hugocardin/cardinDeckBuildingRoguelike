@@ -13,7 +13,7 @@ var character_image_reference: Sprite2D
 var gem_image_reference: Sprite2D
 var attack_text_reference: RichTextLabel
 var shield_text_reference: RichTextLabel
-var name_reference: RichTextLabel
+var name_reference: FitRichTextLabel
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,7 +34,7 @@ func setup(card_instance: CardInstance, card_scale: Vector2 = Vector2.ONE) -> vo
 	# Note : the cards which had been generated because today are hidding the frame because it takes 
 	# the whole space, fine for now, in the future they will all get removed and the new one fit 
 	# correctly as been png with transparent background.
-	character_image_reference.texture = CardDatabase.get_portrait(instance.card_id)
+	character_image_reference.texture = CardDatabase.get_player_card_portrait(instance.card_id)
 	
 	gem_image_reference.texture = Constants.CARD_GEMS[rarity]
 	

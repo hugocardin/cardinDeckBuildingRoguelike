@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ef1fqild2pm8"
-path="res://.godot/imported/dark_knight.jpg-d163b1cdb896123539bf8bcb5d5dffc1.ctex"
+uid="uid://c1752crswt00l"
+path="res://.godot/imported/dark_knight.png-1de67987df4bf6d09ad1f55b9d0fe511.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_cards/dark_knight.jpg"
-dest_files=["res://.godot/imported/dark_knight.jpg-d163b1cdb896123539bf8bcb5d5dffc1.ctex"]
+source_file="res://assets/enemy_cards/dark_knight.png"
+dest_files=["res://.godot/imported/dark_knight.png-1de67987df4bf6d09ad1f55b9d0fe511.ctex"]
 
 [params]
 

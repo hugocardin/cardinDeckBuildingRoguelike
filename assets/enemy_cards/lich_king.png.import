@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbnkv6dd2dikd"
-path="res://.godot/imported/armored_orc.jpg-575c3d7d604ceeacb67ab25b558e9b38.ctex"
+uid="uid://bxwua330hexe4"
+path="res://.godot/imported/lich_king.png-7a1b3a6dfd4cc869b7fe839ae37204fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_cards/armored_orc.jpg"
-dest_files=["res://.godot/imported/armored_orc.jpg-575c3d7d604ceeacb67ab25b558e9b38.ctex"]
+source_file="res://assets/enemy_cards/lich_king.png"
+dest_files=["res://.godot/imported/lich_king.png-7a1b3a6dfd4cc869b7fe839ae37204fb.ctex"]
 
 [params]
 

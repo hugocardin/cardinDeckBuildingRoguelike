@@ -3,7 +3,7 @@
 [resource]
 default_font_size = 45
 Button/fonts/font = null
-PlayerCardNameLabel/base_type = &"RichTextLabel"
-PlayerCardNameLabel/colors/default_color = Color(0, 0, 0, 1)
-PlayerCardNameLabel/font_sizes/normal_font_size = 90
+PlayerCardAttributeLabel/base_type = &"RichTextLabel"
+PlayerCardAttributeLabel/colors/default_color = Color(0, 0, 0, 1)
+PlayerCardAttributeLabel/font_sizes/normal_font_size = 90
 RichTextLabel/font_sizes/normal_font_size = 100

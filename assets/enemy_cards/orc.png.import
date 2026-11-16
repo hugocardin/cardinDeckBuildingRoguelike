@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjaewsgq50c00"
-path="res://.godot/imported/corrupted_druid.jpg-c8d05446c86c7b5ea647339a46e73ea5.ctex"
+uid="uid://bd6ob0y3cupym"
+path="res://.godot/imported/orc.png-66e3961bf16cc5198853f2cfeddfd1e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_cards/corrupted_druid.jpg"
-dest_files=["res://.godot/imported/corrupted_druid.jpg-c8d05446c86c7b5ea647339a46e73ea5.ctex"]
+source_file="res://assets/enemy_cards/orc.png"
+dest_files=["res://.godot/imported/orc.png-66e3961bf16cc5198853f2cfeddfd1e0.ctex"]
 
 [params]
 

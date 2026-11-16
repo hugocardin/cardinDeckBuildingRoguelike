@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8bikqi83cyup"
-path="res://.godot/imported/lich_king.jpg-40b9d9886d7d10ec215771cc9d692d42.ctex"
+uid="uid://b88pumxn1s0oq"
+path="res://.godot/imported/wraithvine.png-14b280ca7786497077c5714fa076e9af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_cards/lich_king.jpg"
-dest_files=["res://.godot/imported/lich_king.jpg-40b9d9886d7d10ec215771cc9d692d42.ctex"]
+source_file="res://assets/enemy_cards/wraithvine.png"
+dest_files=["res://.godot/imported/wraithvine.png-14b280ca7786497077c5714fa076e9af.ctex"]
 
 [params]
 

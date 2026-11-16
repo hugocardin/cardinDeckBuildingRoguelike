@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rf54t03u5cmu"
-path="res://.godot/imported/wolf.jpg-9140e6889c2cf46f5258ff3927feccbb.ctex"
+uid="uid://bw2ehngoxir4b"
+path="res://.godot/imported/galatique.png-13b04a38d7400a6e8bd7f0738f6e0517.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_cards/wolf.jpg"
-dest_files=["res://.godot/imported/wolf.jpg-9140e6889c2cf46f5258ff3927feccbb.ctex"]
+source_file="res://assets/enemy_cards/galatique.png"
+dest_files=["res://.godot/imported/galatique.png-13b04a38d7400a6e8bd7f0738f6e0517.ctex"]
 
 [params]
 

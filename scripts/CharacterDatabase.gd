@@ -12,6 +12,7 @@ const CHARACTERS: Dictionary[String, Dictionary] = {
 	},
 	"cardin_test": {
 		"health": 70,
-		"starting_cards": ["archeron", "archeron", "pitido_le_t", "pitido_le_t", "serpenta", "serpenta", "tharche", "titigra"]
+		"starting_cards": ["archeron", "archeron", "pitido_le_t", "pitido_le_t", "serpenta", 
+						   "miabuela_la_chatte", "tharche", "titigra"]
 	},
 }
