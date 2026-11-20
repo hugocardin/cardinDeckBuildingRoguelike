@@ -66,8 +66,6 @@ const CARD_GEMS: Dictionary[CardRarity, Texture2D] = {
 
 const PLAYER_CARD_PORTRAIT_DIR: String = "res://assets/player_cards/"
 const ENEMY_CARD_PORTRAIT_DIR: String = "res://assets/enemy_cards/"
-const ENEMY_CARD_TEMPLATE: Texture2D = preload("res://assets/cards/card_enemy.jpg")
-
 const MISSING_PORTRAIT: Texture2D = preload("res://assets/cards/missing_portrait.png")
 
 const CARD_RARITY_WEIGHTS: Dictionary[LevelType, Dictionary] = {

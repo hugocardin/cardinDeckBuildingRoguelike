@@ -222,10 +222,15 @@ const ENEMY_CARDS: Dictionary[Constants.LevelType, Dictionary] = {
 	}
 }
 
+static func _get_portrait_path(dir: String, card_id: String) -> String:
+	return dir + card_id + ".png"
+	
 static func _load_portrait(dir: String, card_id: String) -> Texture2D:
-	var path: String = dir + card_id + ".png"
+	var path: String = _get_portrait_path(dir, card_id)
+	
 	if ResourceLoader.exists(path):
 		return load(path)
+		
 	push_error("Missing portrait for '%s': %s" % [card_id, path])
 	return Constants.MISSING_PORTRAIT
 
@@ -242,12 +247,12 @@ static func validate_portraits() -> void:
 	var missing: Array[String] = []
 	
 	for card_id: String in CARDS.keys():
-		if not get_enemy_card_portrait(card_id):
-			missing.append("player card:" + card_id)
+		if not ResourceLoader.exists(_get_portrait_path(Constants.PLAYER_CARD_PORTRAIT_DIR, card_id)):
+			missing.append("player: " + card_id)
 	
 	for level_type: Constants.LevelType in ENEMY_CARDS.keys():
 		for card_id: String in ENEMY_CARDS[level_type].keys():
-			if not get_player_card_portrait(card_id):
+			if not ResourceLoader.exists(_get_portrait_path(Constants.ENEMY_CARD_PORTRAIT_DIR, card_id)):
 				missing.append("enemy: " + card_id)
 	
 	assert(missing.is_empty(), "Cards missing portraits: %s" % ", ".join(missing))

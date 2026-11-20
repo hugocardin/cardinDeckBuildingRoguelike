@@ -30,12 +30,11 @@ func fit_text() -> void:
 	_fitting = true
 	for font_size: int in range(max_font_size, min_font_size - 1, -1):
 		_apply_font_size(font_size)
+		
 		if not is_finished():
 			await finished
 		if get_content_height() <= size.y and get_content_width() <= size.x:
 			break
-		if font_size == min_font_size:
-			_apply_font_size(min_font_size)
 	_fitting = false
 	if _refit_pending:
 		_refit_pending = false
