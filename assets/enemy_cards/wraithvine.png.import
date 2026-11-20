@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by10kei33s5wl"
-path="res://.godot/imported/skeleton.jpg-5252f411e778c2e9a265043a9ea18ec8.ctex"
+uid="uid://b88pumxn1s0oq"
+path="res://.godot/imported/wraithvine.png-14b280ca7786497077c5714fa076e9af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_cards/skeleton.jpg"
-dest_files=["res://.godot/imported/skeleton.jpg-5252f411e778c2e9a265043a9ea18ec8.ctex"]
+source_file="res://assets/enemy_cards/wraithvine.png"
+dest_files=["res://.godot/imported/wraithvine.png-14b280ca7786497077c5714fa076e9af.ctex"]
 
 [params]
 

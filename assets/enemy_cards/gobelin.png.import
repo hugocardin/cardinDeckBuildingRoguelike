@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8p2pf3omfybk"
-path="res://.godot/imported/orc.jpg-5e6d0ce979bec31f473d2c7e621fb1c1.ctex"
+uid="uid://cow1qn12mgdbe"
+path="res://.godot/imported/gobelin.png-dd072ab8d86ddc2d49bffa64024c2c18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_cards/orc.jpg"
-dest_files=["res://.godot/imported/orc.jpg-5e6d0ce979bec31f473d2c7e621fb1c1.ctex"]
+source_file="res://assets/enemy_cards/gobelin.png"
+dest_files=["res://.godot/imported/gobelin.png-dd072ab8d86ddc2d49bffa64024c2c18.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rf54t03u5cmu"
-path="res://.godot/imported/wolf.jpg-9140e6889c2cf46f5258ff3927feccbb.ctex"
+uid="uid://dy1nb8gn5p2xi"
+path="res://.godot/imported/skeleton.png-8c5413233f4e48af267cb9745a12d7b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_cards/wolf.jpg"
-dest_files=["res://.godot/imported/wolf.jpg-9140e6889c2cf46f5258ff3927feccbb.ctex"]
+source_file="res://assets/enemy_cards/skeleton.png"
+dest_files=["res://.godot/imported/skeleton.png-8c5413233f4e48af267cb9745a12d7b3.ctex"]
 
 [params]
 

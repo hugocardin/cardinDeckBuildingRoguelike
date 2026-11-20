@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjaewsgq50c00"
-path="res://.godot/imported/corrupted_druid.jpg-c8d05446c86c7b5ea647339a46e73ea5.ctex"
+uid="uid://btslvuq2q0env"
+path="res://.godot/imported/wolf.png-bca7a675e48fc5ffa1a8d9160723c1e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enemy_cards/corrupted_druid.jpg"
-dest_files=["res://.godot/imported/corrupted_druid.jpg-c8d05446c86c7b5ea647339a46e73ea5.ctex"]
+source_file="res://assets/enemy_cards/wolf.png"
+dest_files=["res://.godot/imported/wolf.png-bca7a675e48fc5ffa1a8d9160723c1e8.ctex"]
 
 [params]
 

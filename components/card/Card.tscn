@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://ct0tgc1n4khwl" path="res://components/card/Card.gd" id="1_42x1r"]
 [ext_resource type="Texture2D" uid="uid://bpyxwkck8pbng" path="res://assets/cards/card_emerald.jpg" id="2_o72a7"]
-[ext_resource type="Texture2D" uid="uid://be3rvhcm251oh" path="res://assets/player_cards/serpenta.png" id="3_ak506"]
+[ext_resource type="Texture2D" uid="uid://j7vceh652dp6" path="res://assets/player_cards/serpenta.png" id="3_ak506"]
 [ext_resource type="Theme" uid="uid://caw1tcdukqnd7" path="res://themes/ui_theme.tres" id="3_khtmt"]
 [ext_resource type="Texture2D" uid="uid://c6vcol20pw4an" path="res://assets/cards/emerald.png" id="4_o72a7"]
 [ext_resource type="Texture2D" uid="uid://bslw2rcvjh4x1" path="res://assets/cards/shield.png" id="5_jo7us"]
 [ext_resource type="Texture2D" uid="uid://cyixln5eh5nm1" path="res://assets/cards/attack.png" id="6_neomv"]
+[ext_resource type="Script" uid="uid://cs8tyo2jfis3g" path="res://components/utils/FitRichTextLabel.gd" id="7_jo7us"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yuttk"]
 size = Vector2(784.5, 1168)
@@ -28,15 +29,14 @@ scale = Vector2(0.15, 0.15)
 texture = ExtResource("4_o72a7")
 
 [node name="ShieldImage" type="Sprite2D" parent="." unique_id=1166834057]
-position = Vector2(-294, 385)
+position = Vector2(-300, 400)
 texture = ExtResource("5_jo7us")
 
 [node name="AttackImage" type="Sprite2D" parent="." unique_id=1455713578]
-position = Vector2(100, 408)
+position = Vector2(75, 400)
 texture = ExtResource("6_neomv")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=213373659]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1457825040]
 position = Vector2(-0.25, 0)
@@ -44,12 +44,12 @@ shape = SubResource("RectangleShape2D_yuttk")
 
 [node name="Attack" type="RichTextLabel" parent="." unique_id=137795790]
 offset_left = 144.0
-offset_top = 341.0
+offset_top = 335.0
 offset_right = 316.0
-offset_bottom = 478.0
+offset_bottom = 459.0
 mouse_filter = 2
 theme = ExtResource("3_khtmt")
-theme_type_variation = &"PlayerCardNameLabel"
+theme_type_variation = &"CardAttributeLabel"
 text = "999"
 fit_content = true
 autowrap_mode = 0
@@ -57,26 +57,27 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="Shield" type="RichTextLabel" parent="." unique_id=407956327]
-offset_left = -235.0
-offset_top = 320.0
-offset_right = -63.0
-offset_bottom = 457.0
+offset_left = -237.0
+offset_top = 335.0
+offset_right = -65.0
+offset_bottom = 459.0
 mouse_filter = 2
 theme = ExtResource("3_khtmt")
-theme_type_variation = &"PlayerCardNameLabel"
+theme_type_variation = &"CardAttributeLabel"
 text = "999"
 fit_content = true
 autowrap_mode = 0
 vertical_alignment = 1
 
-[node name="Name" type="RichTextLabel" parent="." unique_id=1372852587]
+[node name="Name" type="RichTextLabel" parent="." unique_id=2048390598]
 offset_left = -359.0
-offset_top = -533.0
-offset_right = 346.0
+offset_top = -532.0
+offset_right = 345.0
 offset_bottom = -410.0
 mouse_filter = 2
 theme = ExtResource("3_khtmt")
-theme_type_variation = &"PlayerCardNameLabel"
-text = "Tj Tj Tj Tj Tj Tj Tj "
-fit_content = true
-autowrap_mode = 2
+theme_type_variation = &"CardAttributeLabel"
+text = "Serpenta"
+script = ExtResource("7_jo7us")
+max_font_size = 90
+metadata/_custom_type_script = "uid://cs8tyo2jfis3g"
