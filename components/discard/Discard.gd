@@ -4,12 +4,11 @@ class_name Discard
 
 var cards: Array[CardInstance]
 
-var quantity_reference: RichTextLabel
+@onready var quantity_reference: RichTextLabel = $Quantity
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	cards = []
-	quantity_reference = $Quantity
 	
 	_set_card_count()
 
@@ -26,3 +25,7 @@ func empty_discard() -> Array[CardInstance]:
 
 func _set_card_count() -> void:
 	quantity_reference.text = str(cards.size())
+
+func on_tap() -> void:
+	# TODO Implement later
+	print("Tapped on Discard")

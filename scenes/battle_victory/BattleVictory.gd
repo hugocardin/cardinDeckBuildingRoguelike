@@ -2,16 +2,14 @@ extends Node2D
 
 var was_boss_battle: bool
 
-var next_battle_reference: Button
-var after_boss_go_home_reference: Button
+@onready var next_battle_reference: Button = $NextBattleButton
+@onready var after_boss_go_home_reference: Button = $AfterBossGoHome
 
 func _ready() -> void:
 	was_boss_battle = GameState.current_node != null and GameState.current_node.type == Constants.LevelType.WORLD_BOSS_BATTLE
 	
-	next_battle_reference = $NextBattleButton
-	next_battle_reference.text = "Next World" if was_boss_battle else "Next Battle"
+	next_battle_reference.text = "UI_BATTLE_VICTORY_NEXT_WORLD" if was_boss_battle else "UI_BATTLE_VICTORY_NEXT_BATTLE"
 	
-	after_boss_go_home_reference = $AfterBossGoHome
 	after_boss_go_home_reference.visible = was_boss_battle
 
 func _on_after_boss_go_home_pressed() -> void:

@@ -12,6 +12,6 @@ offset_top = 547.0
 offset_right = 690.0
 offset_bottom = 622.0
 theme = ExtResource("2_alh7a")
-text = "Start battle"
+text = "UI_HOME_START_BATTLE"
 
 [connection signal="pressed" from="StartBattleButton" to="." method="_on_start_battle_button_pressed"]

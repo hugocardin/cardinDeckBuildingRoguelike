@@ -6,18 +6,11 @@ var attribut_card_id: String
 var attribute_health: int
 var attribute_attack: int
 
-var health_reference: RichTextLabel
-var attack_reference: RichTextLabel
-var name_reference: FitRichTextLabel
-var enemy_card_image_reference: Sprite2D
-var enemy_character_image_reference: Sprite2D
-
-func _ready() -> void:
-	health_reference = $Health
-	attack_reference = $Attack
-	name_reference = $Name
-	enemy_card_image_reference = $EnemyCardImage
-	enemy_character_image_reference = $EnemyCharacterImage
+@onready var health_reference: RichTextLabel = $Health
+@onready var attack_reference: RichTextLabel = $Attack
+@onready var name_reference: FitRichTextLabel = $Name
+@onready var enemy_card_image_reference: Sprite2D = $EnemyCardImage
+@onready var enemy_character_image_reference: Sprite2D = $EnemyCharacterImage
 
 func setup(card_id: String, attributes: Dictionary, card_scale: Vector2 = Vector2.ONE) -> void:
 	attribut_card_id = card_id
@@ -28,6 +21,7 @@ func setup(card_id: String, attributes: Dictionary, card_scale: Vector2 = Vector
 	
 	health_reference.text = str(attribute_health)
 	attack_reference.text = str(attribute_attack)
+	# TODO use translations
 	name_reference.set_fitted_text(card_id.capitalize())
 	
 	enemy_character_image_reference.texture = CardDatabase.get_enemy_card_portrait(card_id)
@@ -43,3 +37,7 @@ func take_damage(damage: int) -> void:
 		EventBus.enemy_is_dead.emit(self)
 		
 	health_reference.text = str(attribute_health)
+
+func on_tap() -> void:
+	# TODO implement later
+	print("Tapped on enemy: " + attribut_card_id)

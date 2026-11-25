@@ -5,28 +5,32 @@ class_name Player
 var shield: int
 var current_action: int
 
-var health_reference: RichTextLabel
-var shield_reference: RichTextLabel
-var action_reference: RichTextLabel
+@onready var health_reference: RichTextLabel = $Health
+@onready var shield_reference: RichTextLabel = $Shield
+@onready var action_reference: RichTextLabel = $Actions
 
-func _ready() -> void:
-	health_reference = $Health
-	shield_reference = $Shield
-	action_reference = $Actions
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSLATION_CHANGED and is_node_ready():
+		_refresh_texts()
 	
 func setup() -> void:
+	_refresh_texts()
+	
+func _refresh_texts() -> void:
 	_update_health_text()
 	_update_shield_text()
 	_update_action_text()
 	
 func _update_health_text() -> void:
-	health_reference.text = str(GameState.current_health) + " / " + str(GameState.full_health) + " PV"
+	health_reference.text = tr("UI_BATTLE_HEALTH").format(
+		{"current": GameState.current_health, "max": GameState.full_health})
 	
 func _update_shield_text() -> void:
-	shield_reference.text = str(shield) + " shield"
-
+	shield_reference.text = tr("UI_BATTLE_SHIELD").format({"current": shield})
+	
 func _update_action_text() -> void:
-	action_reference.text = str(current_action) + " / " + str(GameState.maximum_action)
+	action_reference.text = tr("UI_BATTLE_ACTIONS").format(
+		{"current": current_action, "max": GameState.maximum_action})
 	
 func add_shield(shield_added: int) -> void:
 	shield += shield_added

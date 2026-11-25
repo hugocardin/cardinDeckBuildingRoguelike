@@ -2,7 +2,6 @@ class_name Constants
 extends RefCounted
 
 const CARD_DEFAULT_MOVE_DURATION := 0.1
-const CARD_SCENE_PATH := "res://components/card/Card.tscn"
 const CARD_SCALE_DEFAULT := Vector2(0.3, 0.3)
 const CARD_NATIVE_SIZE := Vector2(768, 1168)
 const CARD_HEIGHT := CARD_NATIVE_SIZE[1] * CARD_SCALE_DEFAULT.y
@@ -15,8 +14,15 @@ const ENEMIES_HAND_TOP_MARGIN := 20
 const ENEMIES_Y := ENEMIES_HAND_TOP_MARGIN + CARD_HEIGHT / 2.0
 const MAX_NORMAL_ENEMIES := 3
 
-const ENEMY_CARD_SCENE_PATH := "res://components/enemy_card/EnemyCard.tscn"
 const BATTLE_SCENE_PATH := "res://scenes/battle/Battle.tscn"
+const BATTLE_VICTORY_SCENE_PATH := "res://scenes/battle_victory/BattleVictory.tscn"
+const CARD_SCENE_PATH := "res://components/card/Card.tscn"
+const CHARACTER_SELECTION_SCENE_PATH := "res://scenes/character_selection/CharacterSelection.tscn"
+const ENEMY_CARD_SCENE_PATH := "res://components/enemy_card/EnemyCard.tscn"
+const HOME_SCENE_PATH:= "res://scenes/home/Home.tscn"
+const MAP_SCENE_PATH := "res://scenes/map/Map.tscn"
+const PLAYER_IS_DEAD_SCENE_PATH := "res://scenes/player_is_dead/PlayerIsDead.tscn"
+const SHOP_SCENE_PATH := "res://scenes/shop/Shop.tscn"
 
 const PLAYER_CARD_COUNT := 4
 const PLAYER_HAND_BOTTOM_MARGIN := 20
@@ -66,7 +72,7 @@ const CARD_GEMS: Dictionary[CardRarity, Texture2D] = {
 
 const PLAYER_CARD_PORTRAIT_DIR: String = "res://assets/player_cards/"
 const ENEMY_CARD_PORTRAIT_DIR: String = "res://assets/enemy_cards/"
-const MISSING_PORTRAIT: Texture2D = preload("res://assets/cards/missing_portrait.png")
+const MISSING_PORTRAIT: String = "res://assets/cards/missing_portrait.png"
 
 const CARD_RARITY_WEIGHTS: Dictionary[LevelType, Dictionary] = {
 	LevelType.NORMAL_BATTLE: {

@@ -32,6 +32,7 @@ func get_shield() -> int:
 	return get_stat("shield")
 	
 func display_name() -> String:
+	# TODO use translations
 	var base := card_id.capitalize()
 	return base if upgrade_level == 0 else base + "+" + ("" if upgrade_level == 1 else str(upgrade_level))
 

@@ -5,19 +5,19 @@ extends Node2D
 var enemy_cards: Array[EnemyCard]
 var center_screen_x: float
 
-var card_manager_reference: CardManager
+@onready var card_manager_reference: CardManager = $"../CardManager"
+
+const ENEMY_CARD_SCENE: PackedScene = preload(Constants.ENEMY_CARD_SCENE_PATH)
 
 func _ready() -> void:
 	center_screen_x = get_viewport().get_visible_rect().size.x / 2.0
 	enemy_cards = []
 	
-	card_manager_reference = $"../CardManager"
-	
 	EventBus.enemy_is_dead.connect(_on_enemy_is_dead)
 	
 func setup(enemies: Array[String]) -> void:
 	for enemy_card_id: String in enemies:
-		var new_enemy_card: EnemyCard = load(Constants.ENEMY_CARD_SCENE_PATH).instantiate()
+		var new_enemy_card: EnemyCard = ENEMY_CARD_SCENE.instantiate()
 		
 		card_manager_reference.add_child(new_enemy_card)
 		
