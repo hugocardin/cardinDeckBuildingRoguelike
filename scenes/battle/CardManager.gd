@@ -10,24 +10,18 @@ var press_position: Vector2
 var is_dragging: bool
 var screen_size: Vector2
 
-var player_hand_reference: PlayerHand
-var discard_reference: Discard
-var enemies_reference: Enemies
-var deck_reference: Deck
-var player_reference: Player
-var battle_reference: Battle
+@onready var player_hand_reference: PlayerHand = $"../PlayerHand"
+@onready var discard_reference: Discard = $"../Discard"
+@onready var enemies_reference: Enemies = $"../Enemies"
+@onready var deck_reference: Deck = $"../Deck"
+@onready var player_reference: Player = $"../Player"
+@onready var battle_reference: Battle = $".."
 
 func _ready() -> void:
 	pressed_item = null
 	is_dragging = false
 	
 	screen_size = get_viewport_rect().size
-	player_hand_reference = $"../PlayerHand"
-	discard_reference = $"../Discard"
-	enemies_reference = $"../Enemies"
-	deck_reference = $"../Deck"
-	player_reference = $"../Player"
-	battle_reference = $".."
 	
 	EventBus.mouse_pressed.connect(_on_mouse_pressed)
 	EventBus.mouse_moved.connect(_on_mouse_moved)
@@ -53,17 +47,17 @@ func _on_mouse_moved(pos: Vector2) -> void:
 			)
 
 func _on_mouse_released() -> void:
-	if pressed_item is Card:
-		if is_dragging:
-			finish_drag()
-		else:
-			print("Card tapped")
+	if pressed_item is Card and is_dragging:
+		finish_drag()
 	elif battle_reference.is_player_turn():
-		if pressed_item is EnemyCard:
-			# TODO connect to show enemy card details
-			EventBus.enemy_card_clicked.emit(pressed_item)
+		if pressed_item is Card:
+			pressed_item.on_tap()
+		elif pressed_item is EnemyCard:
+			pressed_item.on_tap()
 		elif pressed_item is Deck:
-			EventBus.left_mouse_button_pressed_on_deck.emit()
+			deck_reference.on_tap()
+		elif pressed_item is Discard:
+			discard_reference.on_tap()
 	
 	pressed_item = null
 	is_dragging = false

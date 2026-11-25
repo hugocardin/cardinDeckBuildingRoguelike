@@ -5,24 +5,24 @@ func _ready() -> void:
 	EventBus.character_selected.connect(_on_character_selected)
 
 func go_to_home() -> void:
-	get_tree().change_scene_to_file("res://scenes/home/Home.tscn")
+	get_tree().change_scene_to_file(Constants.HOME_SCENE_PATH)
 
 func go_to_character_selection() -> void:
-	get_tree().change_scene_to_file("res://scenes/character_selection/CharacterSelection.tscn")
+	get_tree().change_scene_to_file(Constants.CHARACTER_SELECTION_SCENE_PATH)
 
 func go_to_player_dead() -> void:
-	get_tree().change_scene_to_file("res://scenes/player_is_dead/PlayerIsDead.tscn")
+	get_tree().change_scene_to_file(Constants.PLAYER_IS_DEAD_SCENE_PATH)
 
 func go_to_map() -> void:
-	get_tree().change_scene_to_file("res://scenes/map/Map.tscn")
+	get_tree().change_scene_to_file(Constants.MAP_SCENE_PATH)
 
 func go_to_shop() -> void:
-	get_tree().change_scene_to_file("res://scenes/shop/Shop.tscn")
+	get_tree().change_scene_to_file(Constants.SHOP_SCENE_PATH)
 	
 func go_to_battle_victory() -> void:
 	GameState.clear_battle()
 	
-	get_tree().change_scene_to_file("res://scenes/battle_victory/BattleVictory.tscn")
+	get_tree().change_scene_to_file(Constants.BATTLE_VICTORY_SCENE_PATH)
 	
 func _on_character_selected(character_name: String) -> void:
 	GameState.reset()

@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://5fvqqma8stjo" path="res://components/discard/Discard.gd" id="1_52l7y"]
 [ext_resource type="Texture2D" uid="uid://580dlai2pyaf" path="res://assets/deckVerso.jpg" id="2_xcntc"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuttk"]
+size = Vector2(784, 1168)
+
 [node name="Discard" type="Node2D" unique_id=1637224165]
 script = ExtResource("1_52l7y")
 
@@ -10,6 +13,11 @@ script = ExtResource("1_52l7y")
 z_index = -2
 position = Vector2(7.6293945e-06, 1.7166138e-05)
 texture = ExtResource("2_xcntc")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1805464672]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=34275112]
+shape = SubResource("RectangleShape2D_yuttk")
 
 [node name="Quantity" type="RichTextLabel" parent="." unique_id=1898549995]
 z_index = -2

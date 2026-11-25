@@ -37,12 +37,13 @@ position = Vector2(930, 600)
 scale = Vector2(0.3, 0.3)
 
 [node name="EndTurnButton" type="Button" parent="." unique_id=457592452]
-offset_left = 415.0
+offset_left = 290.0
 offset_top = 1345.0
-offset_right = 665.0
+offset_right = 790.0
 offset_bottom = 1420.0
+tooltip_auto_translate_mode = 2
 theme = ExtResource("9_2ckr4")
-text = "End Turn"
+text = "UI_BATTLE_END_TURN"
 
 [node name="BattleTimer" type="Timer" parent="." unique_id=443405477]
 

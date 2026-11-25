@@ -4,20 +4,12 @@ extends Node2D
 
 var player_deck: Array[CardInstance]
 
-var card_count_reference: RichTextLabel
+@onready var card_count_reference: RichTextLabel = $CardCount
+@onready var card_manager_reference: CardManager = $"../CardManager"
+@onready var player_hand_reference: PlayerHand = $"../PlayerHand"
+@onready var discard_reference: Discard = $"../Discard"
 
-var card_manager_reference: CardManager
-var player_hand_reference: PlayerHand
-var discard_reference: Discard
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	EventBus.left_mouse_button_pressed_on_deck.connect(_on_left_mouse_button_pressed_on_deck)
-	
-	card_manager_reference = $"../CardManager"
-	player_hand_reference = $"../PlayerHand"
-	discard_reference = $"../Discard"
-	card_count_reference = $CardCount
+const CARD_SCENE: PackedScene = preload(Constants.CARD_SCENE_PATH)
 
 func setup(cards: Array[CardInstance]) -> void:
 	player_deck = cards
@@ -39,7 +31,7 @@ func draw_card() -> void:
 	player_deck.remove_at(0)
 	
 	_set_card_count_text()
-	var new_card: Card = preload(Constants.CARD_SCENE_PATH).instantiate()
+	var new_card: Card = CARD_SCENE.instantiate()
 	
 	card_manager_reference.add_child(new_card)
 	new_card.global_position = global_position
@@ -54,6 +46,6 @@ func refill_hand() -> void:
 	for i: int in range(Constants.PLAYER_CARD_COUNT - player_hand_reference.cards.size()):
 		draw_card()
 		
-func _on_left_mouse_button_pressed_on_deck() -> void:
+func on_tap() -> void:
 	# TODO show the Draw's cards
-	pass
+	print("Tapped on Deck")

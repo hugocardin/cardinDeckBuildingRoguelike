@@ -2,27 +2,20 @@ class_name Battle
 
 extends Node
 
-var battle_timer: Timer
-
 enum BATTLE_CURRENT_TURN {PLAYER, OPONNENT}
 
 var battle_current_turn: BATTLE_CURRENT_TURN
-	
-var enemies_reference: Enemies
-var player_reference: Player
-var deck_reference: Deck
-var end_button_reference: Button
+
+@onready var battle_timer: Timer = $BattleTimer
+@onready var enemies_reference: Enemies = $Enemies
+@onready var player_reference: Player = $Player
+@onready var deck_reference: Deck = $Deck
+@onready var end_button_reference: Button = $EndTurnButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	battle_timer = $BattleTimer
 	battle_timer.wait_time = 1
 	battle_timer.one_shot = true
-	
-	enemies_reference = $Enemies
-	player_reference = $Player
-	deck_reference = $Deck
-	end_button_reference = $EndTurnButton
 	
 	_initialise_cards()
 	
@@ -44,14 +37,14 @@ func is_player_turn() -> bool:
 	return battle_current_turn == BATTLE_CURRENT_TURN.PLAYER
 
 func _on_end_turn_button_pressed() -> void:
-	end_button_reference.text = "Enemy turn"
+	end_button_reference.text = "UI_BATTLE_ENEMY_TURN"
 	end_button_reference.disabled = true
 	battle_current_turn = BATTLE_CURRENT_TURN.OPONNENT
 	
 	await opponent_turn()
 	
 	if !GameState.is_player_dead():
-		end_button_reference.text = "End turn"
+		end_button_reference.text = "UI_BATTLE_END_TURN"
 		end_button_reference.disabled = false
 		battle_current_turn = BATTLE_CURRENT_TURN.PLAYER
 		

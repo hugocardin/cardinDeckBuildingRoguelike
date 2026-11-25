@@ -1,0 +1,11 @@
+keys;en;fr
+UI_HOME_START_BATTLE;Fight!;À l'Attaque!
+
+UI_BATTLE_END_TURN;End turn;Fin du tour
+UI_BATTLE_ENEMY_TURN;Enemy turn;Tour de l'ennemie
+UI_BATTLE_HEALTH;{current} / {max} HP;{current} / {max} PV
+UI_BATTLE_SHIELD;{current} shields;{current} boucliers
+UI_BATTLE_ACTIONS;{current} / {max} actions;{current} / {max} actions
+
+UI_BATTLE_VICTORY_NEXT_BATTLE;Next Battle;Prochaine bataille
+UI_BATTLE_VICTORY_NEXT_WORLD;Next World;Prochain monde

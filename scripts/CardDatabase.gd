@@ -232,7 +232,7 @@ static func _load_portrait(dir: String, card_id: String) -> Texture2D:
 		return load(path)
 		
 	push_error("Missing portrait for '%s': %s" % [card_id, path])
-	return Constants.MISSING_PORTRAIT
+	return load(Constants.MISSING_PORTRAIT)
 
 ## Returns the card's portrait, or a visible placeholder if the file is missing.
 static func get_player_card_portrait(card_id: String) -> Texture2D:

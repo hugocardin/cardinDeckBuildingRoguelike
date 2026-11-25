@@ -3,11 +3,10 @@ extends Node2D
 const SHOP_CARD_COUNT := 3
 
 var card_scene: PackedScene = preload(Constants.CARD_SCENE_PATH)
-var cards_to_add_reference: HBoxContainer
+
+@onready var cards_to_add_reference: HBoxContainer = $CardsToAdd
 
 func _ready() -> void:
-	cards_to_add_reference = $CardsToAdd
-	
 	_fill_cards_to_add()
 
 func _fill_cards_to_add() -> void:
@@ -38,7 +37,7 @@ func _add_card_choice(card_instance: CardInstance) -> void:
 	cards_to_add_reference.add_child(slot)
 
 	var card: Card = card_scene.instantiate()
-	slot.add_child(card)  # add first so Card._ready() grabs its node references
+	slot.add_child(card)
 	card.setup(card_instance, Constants.CARD_SCALE_DEFAULT)
 	card.position = card_size / 2.0  # the card's origin is its center
 

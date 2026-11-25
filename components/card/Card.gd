@@ -8,21 +8,12 @@ var attribut_shield: int
 
 var instance: CardInstance
 
-var card_image_reference: Sprite2D
-var character_image_reference: Sprite2D
-var gem_image_reference: Sprite2D
-var attack_text_reference: RichTextLabel
-var shield_text_reference: RichTextLabel
-var name_reference: FitRichTextLabel
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	card_image_reference = $CardImage
-	character_image_reference = $CharacterImage
-	gem_image_reference = $GemImage
-	attack_text_reference = $Attack
-	shield_text_reference = $Shield
-	name_reference = $Name
+@onready var card_image_reference: Sprite2D = $CardImage
+@onready var character_image_reference: Sprite2D = $CharacterImage
+@onready var gem_image_reference: Sprite2D = $GemImage
+@onready var attack_text_reference: RichTextLabel = $Attack
+@onready var shield_text_reference: RichTextLabel = $Shield
+@onready var name_reference: FitRichTextLabel = $Name
 
 func setup(card_instance: CardInstance, card_scale: Vector2 = Vector2.ONE) -> void:
 	instance = card_instance
@@ -50,3 +41,7 @@ func refresh() -> void:
 	attack_text_reference.text = str(attribut_attack)
 	shield_text_reference.text = str(attribut_shield)
 	name_reference.set_fitted_text(instance.display_name())
+	
+func on_tap() -> void:
+	# TODO to implement later
+	print("Tapped on player card: " + instance.card_id)

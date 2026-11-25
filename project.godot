@@ -36,6 +36,10 @@ window/stretch/mode="canvas_items"
 window/handheld/orientation=1
 window/vsync/vsync_mode=0
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://localization/ui.en.translation", "res://localization/ui.fr.translation")
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

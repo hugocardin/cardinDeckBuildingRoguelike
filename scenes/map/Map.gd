@@ -1,15 +1,10 @@
 extends Node2D
 
-var background_reference: Sprite2D
-var nodes_reference: Node2D
-
-var paths_reference: Node2D
+@onready var background_reference: Sprite2D = $Background
+@onready var nodes_reference: Node2D = $Nodes
+@onready var paths_reference: Node2D = $Paths
 
 func _ready() -> void:
-	nodes_reference = $Nodes
-	paths_reference = $Paths
-	background_reference = $Background
-	
 	if GameState.current_map_nodes.is_empty():
 		GameState.map_background_index = randi() % Constants.MAP_BACKGROUNDS.size()
 		var nodes: Array[MapNode] = _generate_map()
